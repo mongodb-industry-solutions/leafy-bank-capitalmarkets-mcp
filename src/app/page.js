@@ -1,11 +1,12 @@
-import LeafygreenExample from "@/components/leafygreenExample/LeafygreenExample";
-import Test from "@/components/test/Test";
+"use client";
+
+import ChatInterface from "@/components/ChatInterface/ChatInterface";
+import LeafygreenProvider from "@leafygreen-ui/leafygreen-provider";
 
 export default function Home() {
   return (
-    <>
-      <Test name={"World!"}></Test>
-      <LeafygreenExample></LeafygreenExample>
-    </>
+    <LeafygreenProvider darkMode={false}>
+      <ChatInterface />
+    </LeafygreenProvider>
   );
 }

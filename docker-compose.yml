@@ -7,8 +7,10 @@ services:
     volumes:
       - ~/.aws/credentials:/root/.aws/credentials:ro
       - ~/.aws/config:/root/.aws/config:ro
-      - ~/.aws/sso/cache:/root/.aws/sso/cache:rw  # Only make cache writable
+      - ~/.aws/sso/cache:/root/.aws/sso/cache:rw
     ports:
       - "3000:3000"
+    env_file:
+      - .env
     restart: always
     container_name: app

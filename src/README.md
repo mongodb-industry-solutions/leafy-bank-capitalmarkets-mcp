@@ -1,82 +1,134 @@
-# Next.js Frontend
+# MongoDB MCP Server Demo - NextJS
 
-## Getting Started 
+A modern Next.js application demonstrating the MongoDB MCP (Model Context Protocol) Server integration with financial data analysis capabilities.
 
-1. Install dependencies by running:
-```bash
-npm install
+## Features
+
+- Real-time cryptocurrency data (BTC, ETH) from MongoDB
+- Stock market information (AAPL, EEM)
+- MongoDB MCP Server integration with complete transparency
+- Live tool call tracking and console logs
+- Beautiful UI with MongoDB Leafygreen design system
+
+## Tech Stack
+
+- **Next.js 14.2.30** - React framework with App Router
+- **Node.js 20.19.0+** - Required for MongoDB MCP Server compatibility
+- **MongoDB MCP Server** - Globally installed in Docker container
+- **MongoDB MCP Server** - Direct database access through standardized protocol
+- **Leafygreen UI** - MongoDB's design system components
+- **Geist Font** - Modern typography
+
+## Prerequisites
+
+- **Node.js 20.19.0+** (Required for MongoDB MCP Server compatibility)
+- **Node.js 22.12.0+** (If using Node.js 22, must be 22.12.0 or later)
+- **npm 8+** or **yarn**
+- **MongoDB Atlas cluster** or self-hosted MongoDB deployment
+
+## Setup
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Configure environment variables:
+   - Copy `.env.local.example` to `.env.local`
+   - Update with your MongoDB connection string and MCP API credentials
+
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## Environment Variables
+
+Create a `.env.local` file with:
+
+```env
+NEXT_PUBLIC_MCP_CONNECTION_STRING=your_mongodb_connection_string
+NEXT_PUBLIC_MCP_API_CLIENT_ID=your_NEXT_PUBLIC_MCP_API_CLIENT_ID
+NEXT_PUBLIC_MCP_API_CLIENT_SECRET=your_NEXT_PUBLIC_MCP_API_CLIENT_SECRET
 ```
-2. Start the frontend development server with:
-````bash
-npm run dev
-````
-3. The frontend will now be accessible at http://localhost:3000 by default, providing a user interface.
 
-> **_NOTE:_**  If you want to learn more about Next.js take a look at this short [course](https://nextjs.org/learn/dashboard-app/getting-started).
+## Project Structure
 
-## Routes
+```
+mcp-demo-nextjs/
+├── app/
+│   ├── api/mcp/        # API routes for MCP server
+│   ├── layout.js       # Root layout with Leafygreen provider
+│   └── page.js         # Main landing page
+├── components/
+│   └── ChatInterface/  # Chat UI with MCP integration
+├── lib/
+│   ├── mcp-server.js   # MCP server manager
+│   └── question-processor.js # Natural language processing
+└── public/             # Static assets
+```
 
-In Next.js, routes are created inside the `app` directory. Here's a breakdown of how the routing works:
+## Available MCP Tools
 
-### API Routes
+- **find** - Query documents from MongoDB collections
+- **aggregate** - Run aggregation pipelines for complex analytics
+- **list-collections** - Explore available collections
 
-- The `api` folder is used for creating API routes.
-- We have two example routes for demonstrating how API routes work:
+## Example Queries
 
-  - **GET request to MongoDB**:  
-    [http://localhost:3000/api/mongodb](http://localhost:3000/api/mongodb)
+Try these queries in the chat interface:
 
-  - **Basic test route**:  
-    [http://localhost:3000/api/test](http://localhost:3000/api/test)
+- "What is the latest BTC price?"
+- "Show me ETH price trend"
+- "What are BTC daily statistics?"
+- "Show me the latest AAPL stock price"
+- "What collections are available?"
 
-### Dynamic Routes
+## Development
 
-- If you create a new folder inside the `app` directory, a route will be automatically created based on the folder name.
-- For example, creating a folder called `example` will make it accessible at:
-  [http://localhost:3000/example](http://localhost:3000/example)
+The application follows Next.js best practices:
 
-Each route includes a `layout.js` and `page.js` to define the structure and content.
+- Server-side API routes for secure database access
+- Environment variables for sensitive configuration
+- Modular component structure
+- Responsive design with Leafygreen components
 
-### Root Route
+## Docker Deployment
 
-- The global root route (home page) is accessible at:
-  [http://localhost:3000](http://localhost:3000)
+The application uses Docker Compose to run the MongoDB MCP Server and Next.js app as separate services:
 
-This page is managed by the `layout.js` and `page.js` inside the `app` directory.
+```bash
+# 1. Set up environment variables
+make setup
+# This creates .env file from template
 
+# 2. Edit .env with your MongoDB credentials
+nano .env  # or your preferred editor
 
-## Components
+# 3. Build and start services
+make build
+```
 
-Components are located outside the `app` folder, inside the `components` directory.
+**Features:**
+- **Separate Services**: MCP Server and Next.js app run in separate containers
+- **Auto-start MCP Server**: The MongoDB MCP Server starts immediately when containers start
+- **No waiting time**: Users can ask questions immediately without initialization delays
+- **Better Reliability**: Each service can be managed independently
+- **Read-only mode**: Enabled by default for security
 
-There are two example components:
+## Other Deployment Options
 
-1. **MongoDB Leafy Green System Design**: Demonstrates how to integrate MongoDB with your component.
-2. **Test Component**: Shows how to create a simple test component that includes both a `.jsx` file and a `.module.css` file for styling.
+This application can also be deployed to:
 
-### CSS
+- Vercel (recommended)
+- AWS Amplify
+- Netlify
 
-Each component should have its own dedicated CSS file. For styling, we recommend using CSS Modules (e.g., `component.module.css`) to scope styles locally to the component.
+Remember to set environment variables in your deployment platform.
 
-### Images
+## License
 
-For adding images, we use `Image` from `next/image`, which is provided by Next.js. This component optimizes images for caching and better performance.
-
-- Images should be stored in the `public` folder inside the `src` directory.
-- Next.js automatically handles these images, making them easily accessible.
-
-For an example, check out the `test.jsx` component.
-
-## MongoDB Connections
-
-This template includes a `lib` folder with a utility for connecting to MongoDB. 
-
-Inside the `lib` folder, you’ll find a function called `connectToDatabase`. To use it, simply import the function and pass the necessary parameters to specify which database and collection you want to connect to.
-
-The `connectToDatabase` function manages the connection and can be reused across your application for efficient MongoDB interactions.
-
-## .env.local
-
-Next.js natively supports `.env.local` files, so you don't need to install additional libraries like `dotenv`. Simply create a `.env.local` file, and Next.js will automatically detect and load it.
-
-Make sure to place the `.env.local` file inside the `src` folder for proper configuration.
+MIT
