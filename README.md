@@ -2,16 +2,43 @@
 
 A real-time chat application that demonstrates the power of the **MongoDB MCP Server** combined with an **AI-powered ReAct Agent** to enable intelligent natural language queries to financial data stored in MongoDB Atlas.
 
+## 🚨 **IMPORTANT: Docker Required**
+
+**This demo can ONLY be run using Docker.** The application requires the `mongodb-mcp-server` npm package which is installed and configured within the Docker container. Running this locally without Docker is not supported as it would require manual installation and configuration of the MCP server dependencies.
+
 ## 🎯 **Demo Purpose**
 
 This application showcases how **Model Context Protocol (MCP)** enables AI assistants to directly interact with databases through standardized tools, enhanced with intelligent natural language processing via AWS Bedrock and the ReAct (Reasoning and Acting) framework for financial data analysis.
+
+## 📋 **Demo Limitations**
+
+This is a **demonstration application** with the following constraints:
+
+### **Read-Only Operations**
+- Only `find`, `aggregate`, and `list-collections` operations are supported
+- No create, update, or delete operations for security
+- Limited to querying existing financial time series data
+
+### **Supported Assets Only**
+- **Cryptocurrencies**: BTC, ETH, XRP, SOL, DOGE, ADA (in `binanceCryptoData` collection)
+- **Stocks/ETFs**: HYG, LQD, TLT, GLD, USO, EEM, QQQ, SPY, XLE, VNQ (in `yfinanceMarketData` collection)
+- Only these specific symbols can be queried from the provided sample data
+
+### **Basic Calculations Only**
+- Simple aggregations (averages, sums, counts)
+- Price trends and comparisons
+- **NOT supported**: Complex calculations like volatility, moving averages, RSI, technical indicators
+
+### **Time Range Limits**
+- Default: Last 7 days when not specified
+- Maximum: 60 days (8 weeks or 2 months)
+- All prices rounded to 2 decimal places
 
 ## 🚀 **Key Features**
 
 ### ✅ **AI-Powered ReAct Agent**
 - **Natural Language Understanding** - Ask questions in plain English
 - **Intelligent Tool Selection** - Automatically chooses the right MCP tools
-- **Complex Query Handling** - Can combine multiple tools for comprehensive answers
 - **AWS Bedrock Integration** - Powered by Claude models via SSO authentication
 - **Real-time Tool Tracking** - See exactly which tools are used for each query
 
@@ -58,29 +85,36 @@ This application showcases how **Model Context Protocol (MCP)** enables AI assis
 
 ## 📊 **Supported Queries**
 
-The ReAct Agent can handle a wide variety of natural language queries:
+The ReAct Agent can handle these specific query patterns:
 
-### **Cryptocurrency Data**
-- `"What is the latest BTC price?"` → Uses `find` tool
-- `"BTC daily statistics"` → Uses `aggregate` tool
-- `"Bitcoin price today"` → Uses `find` tool
-- `"Show me ETH price trend"` → Uses `find` tool with sorting
-- `"Compare BTC and ETH prices over the last week"` → Uses `find` or `aggregate` tools
+### **1. List Collections**
+- `"List collections in the database"`
+- Shows all available collections
+- Explains that only `yfinanceMarketData` and `binanceCryptoData` support queries
 
-### **Stock Data**
-- `"Show me Apple stock price"` → Uses `find` tool
-- `"EEM stock price"` → Uses `find` tool
-- `"AAPL latest price"` → Uses `find` tool
-- `"Show me trading volume patterns for QQQ"` → Uses `aggregate` tool
+### **2. Latest Prices**
+- `"What is the latest available BTC close price?"`
+- `"What is the latest available GLD close price?"`
+- Returns the most recent closing price for any supported asset
 
-### **Complex Analysis**
-- `"Compare BTC and ETH performance over the last week"` → Uses multiple `aggregate` tools
-- `"What are the average trading volumes for SPY?"` → Uses `aggregate` tool
-- `"Show me price trends for GLD"` → Uses `find` tool with date filtering
+### **3. Price Trends**
+- `"Show me price trends for ETH over the last 7 days"`
+- `"Show me price trends for GLD"`
+- Displays daily price averages over the specified period
 
-### **Database Information**
-- `"What collections are available?"` → Uses `list-collections` tool
-- `"Show me database info"` → Uses `list-collections` tool
+### **4. Volume Analysis**
+- `"What are the average trading volumes for SPY on the last 7 days?"`
+- Calculates average trading volumes for the period
+
+### **5. Price Comparisons**
+- `"Compare BTC and ETH prices over the last week"`
+- Shows price ranges and comparisons between two assets
+
+### **Important Notes:**
+- All queries must use the **exact asset symbols** listed in limitations
+- Time ranges default to 7 days if not specified
+- Maximum time range is 60 days
+- All prices are rounded to 2 decimal places
 
 ## 🎨 **User Interface**
 
@@ -103,6 +137,13 @@ The ReAct Agent can handle a wide variety of natural language queries:
 - **Auto-scrolling** to latest entries
 
 ## 🔧 **Technical Implementation**
+
+### **AWS Bedrock Client**
+The application uses a `BedrockClient` class that:
+- Supports AWS SSO authentication (primary method)
+- Falls back to AWS credentials file or environment variables
+- Automatically picks up credentials from the mounted `~/.aws` directory
+- Uses the model specified in `CHAT_COMPLETIONS_MODEL_ID`
 
 ### **ReAct Agent Integration**
 ```javascript
@@ -144,19 +185,70 @@ mcpProcess.stdin.write(JSON.stringify(request) + '\n');
 - **Parameter logging** for transparency
 - **Timing information** for performance monitoring
 
-## 🚀 **Quick Start**
+## 🚀 **Quick Start with Docker**
 
 ### **Prerequisites**
-- Node.js 16+ installed
-- Access to MongoDB Atlas cluster
+- Docker and Docker Compose installed
+- MongoDB Atlas cluster with database created
 - AWS account with Bedrock access
-- AWS CLI configured with SSO
+- AWS CLI configured with SSO on your host machine
 
-### **Installation**
+### **MongoDB Data Setup**
+
+This demo requires financial time series data to be loaded into your MongoDB database. Sample data files are provided in the `src/public` directory:
+
+- **`binanceCryptoData.json`** - 3,000 documents of cryptocurrency OHLCV data (BTC, ETH, XRP, SOL, DOGE, ADA)
+- **`yfinanceMarketData.json`** - 150 documents of stock/ETF OHLCV data (HYG, LQD, TLT, GLD, USO, EEM, QQQ, SPY, XLE, VNQ)
+
+#### **Import Data to MongoDB Atlas**
+
+1. **Using MongoDB Compass or mongosh:**
 ```bash
-cd demo-app
-npm install
+# Import crypto data
+mongoimport --uri "mongodb+srv://<USERNAME>:<PASSWORD>@<CLUSTER_NAME>.mongodb.net/<DATABASE_NAME>" \
+  --collection binanceCryptoData \
+  --file src/public/binanceCryptoData.json \
+  --jsonArray
+
+# Import stock data
+mongoimport --uri "mongodb+srv://<USERNAME>:<PASSWORD>@<CLUSTER_NAME>.mongodb.net/<DATABASE_NAME>" \
+  --collection yfinanceMarketData \
+  --file src/public/yfinanceMarketData.json \
+  --jsonArray
 ```
+
+2. **Or use MongoDB Atlas UI:**
+   - Navigate to your cluster in MongoDB Atlas
+   - Click on "Collections"
+   - Create two collections: `binanceCryptoData` and `yfinanceMarketData`
+   - Use the "Import Data" feature to upload the JSON files
+
+**Important**: The demo will only work with these exact collection names as they are hardcoded in the React Agent.
+
+#### **Data Structure**
+
+Both collections follow the OHLCV (Open, High, Low, Close, Volume) format:
+```json
+{
+  "_id": "ObjectId",
+  "symbol": "BTC",              // Asset symbol
+  "timestamp": "2025-07-01T00:00:00Z",  // ISO timestamp
+  "open": 65432.10,            // Opening price
+  "high": 65500.00,            // Highest price
+  "low": 65400.00,             // Lowest price
+  "close": 65450.25,           // Closing price
+  "volume": 12345.67           // Trading volume
+}
+```
+
+### **Why Docker?**
+The MongoDB MCP Server (`mongodb-mcp-server`) is a specialized npm package that:
+- Implements the Model Context Protocol for MongoDB
+- Requires specific Node.js runtime configuration
+- Needs proper process management for spawning and communication
+- Is pre-installed and configured in the Docker image
+
+Without Docker, you would need to manually install and configure the MCP server, which is not supported for this demo.
 
 ### **AWS SSO Authentication Setup**
 
@@ -192,10 +284,38 @@ aws bedrock list-foundation-models --region us-east-1 --profile default
 ```
 
 #### **4. Set Environment Variables**
-Create a `.env.local` file in the project root:
+Create a `.env` file in the project root:
 ```bash
 # MongoDB MCP Server Configuration
-NEXT_PUBLIC_MCP_CONNECTION_STRING=mongodb+srv://fsi-demos:...@ist-shared.n0kts.mongodb.net/agentic_capital_markets
+NEXT_PUBLIC_MCP_CONNECTION_STRING=mongodb+srv://<USERNAME>:<PASSWORD>@<CLUSTER_NAME>.mongodb.net/<DATABASE_NAME>
+NEXT_PUBLIC_MCP_API_CLIENT_ID=<YOUR_API_CLIENT_ID>
+NEXT_PUBLIC_MCP_API_CLIENT_SECRET=<YOUR_API_CLIENT_SECRET>
+# AWS Bedrock Configuration
+NEXT_PUBLIC_AWS_REGION=us-east-1
+NEXT_PUBLIC_CHAT_COMPLETIONS_MODEL_ID=anthropic.claude-3-haiku-20240307-v1:0
+```
+
+Replace the placeholders:
+- `<USERNAME>`: Your MongoDB Atlas username
+- `<PASSWORD>`: Your MongoDB Atlas password
+- `<CLUSTER_NAME>`: Your MongoDB Atlas cluster name
+- `<DATABASE_NAME>`: Your database name (e.g., `financial_data`)
+- `<YOUR_API_CLIENT_ID>`: Your API client ID
+- `<YOUR_API_CLIENT_SECRET>`: Your API client secret
+
+### **Running the Demo with Docker**
+
+#### **1. Clone the Repository**
+```bash
+git clone <repository-url>
+cd leafy-bank-capitalmarkets-mcp
+```
+
+#### **2. Configure Environment Variables**
+Create a `.env` file in the project root (NOT in the src directory):
+```bash
+# MongoDB MCP Server Configuration
+NEXT_PUBLIC_MCP_CONNECTION_STRING=mongodb+srv://username:password@cluster.mongodb.net/database
 NEXT_PUBLIC_MCP_API_CLIENT_ID=your-api-client-id
 NEXT_PUBLIC_MCP_API_CLIENT_SECRET=your-api-client-secret
 
@@ -205,12 +325,39 @@ AWS_REGION=us-east-1
 AWS_PROFILE=default
 ```
 
-### **Running the Demo**
+#### **3. Build and Run with Docker Compose**
 ```bash
-npm start
+# Build the Docker image
+make build
+
+# Start the application
+make up
+
+# Or use docker-compose directly
+docker-compose up --build
 ```
 
+#### **4. Access the Application**
 Open `http://localhost:3000` in your browser.
+
+#### **5. Stop the Application**
+```bash
+# Stop the containers
+make down
+
+# Or use docker-compose directly
+docker-compose down
+```
+
+### **Docker Configuration Details**
+
+The `docker-compose.yml` file:
+- Mounts your AWS credentials for SSO authentication
+- Installs the `mongodb-mcp-server` package
+- Configures the Node.js environment
+- Exposes port 3000 for the web interface
+
+**Important**: The application runs entirely within Docker. Do not attempt to run `npm install` or `npm start` locally.
 
 ## 📡 **API Endpoints**
 
@@ -347,8 +494,23 @@ This demo demonstrates:
 
 ## 📝 **Troubleshooting**
 
+### **Docker Issues**
+```bash
+# Check if containers are running
+docker ps
+
+# View container logs
+docker logs leafy-bank-capitalmarkets-mcp-app-1
+
+# Rebuild if needed
+docker-compose down
+docker-compose build --no-cache
+docker-compose up
+```
+
 ### **AWS SSO Issues**
 ```bash
+# On your HOST machine (not in Docker):
 # Check SSO login status
 aws sts get-caller-identity --profile default
 
@@ -359,17 +521,19 @@ aws sso login --profile default
 aws bedrock list-foundation-models --region us-east-1 --profile default
 ```
 
-### **MCP Server Issues**
-- Check MongoDB Atlas connection string
-- Verify API credentials are correct
-- Ensure read-only mode is enabled
-- Check console logs for detailed error messages
+**Note**: AWS credentials are mounted from your host machine into the Docker container. Ensure you're logged in via SSO on your host before starting Docker.
 
-### **ReAct Agent Issues**
-- Verify AWS Bedrock access and model availability
-- Check SSO authentication is active
-- Review system prompt configuration
-- Monitor tool call execution in console logs
+### **MCP Server Issues**
+- **Connection refused**: Check MongoDB Atlas connection string in `.env`
+- **Authentication failed**: Verify API credentials are correct
+- **No data returned**: Ensure you're querying supported assets only
+- **Check logs**: Use `docker logs` to see detailed MCP server output
+
+### **Common Docker Problems**
+- **Port already in use**: Another service is using port 3000
+- **Permission denied**: Check Docker daemon is running
+- **AWS credentials not found**: Ensure `~/.aws` directory exists on host
+- **Environment variables not loaded**: Check `.env` file is in project root
 
 ## 🤝 **Contributing**
 
