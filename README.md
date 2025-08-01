@@ -197,8 +197,8 @@ mcpProcess.stdin.write(JSON.stringify(request) + '\n');
 
 This demo requires financial time series data to be loaded into your MongoDB database. Sample data files are provided in the `src/public` directory:
 
-- **`binanceCryptoData.json`** - 3,000 documents of cryptocurrency OHLCV data (BTC, ETH, XRP, SOL, DOGE, ADA)
-- **`yfinanceMarketData.json`** - 150 documents of stock/ETF OHLCV data (HYG, LQD, TLT, GLD, USO, EEM, QQQ, SPY, XLE, VNQ)
+- **`binanceCryptoData.json`** - cryptocurrency OHLCV data (BTC, ETH, XRP, SOL, DOGE, ADA)
+- **`yfinanceMarketData.json`** - stock/ETF OHLCV data (HYG, LQD, TLT, GLD, USO, EEM, QQQ, SPY, XLE, VNQ)
 
 #### **Import Data to MongoDB Atlas**
 
