@@ -1,10 +1,10 @@
-# 📊 Financial Data Analysis - MongoDB MCP Server with ReAct Agent Demo
+# 📊 Financial Data Analysis - MongoDB MCP Server Demo
 
 A real-time chat application that demonstrates the power of the **MongoDB MCP Server** combined with an **AI-powered ReAct Agent** to enable intelligent natural language queries to financial data stored in MongoDB Atlas.
 
 ## 🚨 **IMPORTANT: Docker Required**
 
-**This demo can ONLY be run using Docker.** The application requires the `mongodb-mcp-server` npm package which is installed and configured within the Docker container. Running this locally without Docker is not supported as it would require manual installation and configuration of the MCP server dependencies.
+The application requires the `mongodb-mcp-server` npm package which is installed and configured within the Docker container. Running this locally without Docker is not supported as it would require manual installation and configuration of the MCP server dependencies.
 
 ## 🎯 **Demo Purpose**
 
