@@ -10,7 +10,5 @@ services:
       - ~/.aws/sso/cache:/root/.aws/sso/cache:rw
     ports:
       - "3000:3000"
-    env_file:
-      - .env
     restart: always
     container_name: app

@@ -100,7 +100,10 @@ export class MCPServerManager {
         const apiClientSecret = process.env.NEXT_PUBLIC_MCP_API_CLIENT_SECRET;
 
         if (!connectionString || !apiClientId || !apiClientSecret) {
-          throw new Error('Missing required MCP configuration. Please check your .env.local file.');
+          console.log('⚠️ MCP configuration not found. MCP server will not be initialized.');
+          console.log('ℹ️ This is normal for ReAct Agent mode which doesn\'t require MCP server.');
+          resolve();
+          return;
         }
 
         // Connect to the MongoDB MCP Server running in separate container
@@ -137,6 +140,13 @@ export class MCPServerManager {
         setTimeout(async () => {
           console.log('✅ MCP Server initialized');
           try {
+            // Check if process is still available before proceeding
+            if (!this.mcpProcess) {
+              console.log('⚠️ MCP Server process is no longer available');
+              resolve();
+              return;
+            }
+            
             await this.getAvailableTools();
             this.initialized = true;
             resolve();
@@ -221,7 +231,10 @@ export class MCPServerManager {
 
       // Increase timeout to 15 seconds for Docker environment
       setTimeout(() => {
-        this.mcpProcess.stdout.removeListener('data', responseHandler);
+        // Check if process is still available before removing listener
+        if (this.mcpProcess && this.mcpProcess.stdout) {
+          this.mcpProcess.stdout.removeListener('data', responseHandler);
+        }
         reject(new Error('Tools list request timeout'));
       }, 15000);
     });
@@ -316,7 +329,10 @@ export class MCPServerManager {
       let timeoutId = setTimeout(() => {
         if (!isResolved) {
           isResolved = true;
-          this.mcpProcess.stdout.removeListener('data', responseHandler);
+          // Check if process is still available before removing listener
+          if (this.mcpProcess && this.mcpProcess.stdout) {
+            this.mcpProcess.stdout.removeListener('data', responseHandler);
+          }
           this.updateToolCallStatus(call.id, 'error', 'Request timeout');
           reject(new Error('Request timeout'));
         }
@@ -426,7 +442,8 @@ export async function getMCPServer() {
     } catch (error) {
       console.error('❌ MCP Server initialization failed:', error);
       clearMCPServerInstance();
-      throw error;
+      // Don't throw error, just return null for graceful degradation
+      return null;
     } finally {
       setInitializationPromise(null);
     }

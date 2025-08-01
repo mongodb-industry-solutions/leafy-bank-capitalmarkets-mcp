@@ -25,12 +25,20 @@ export function clearGlobalMCPServerInstance() {
   globalInitializationPromise = null;
 }
 
-export async function getOrCreateGlobalMCPServer(MCPServerManagerClass) {
-  // Always create a fresh instance for demo purposes
-  // This ensures each page refresh gets a clean state
+// Function to reset the MCP server for fresh demos
+export function resetGlobalMCPServer() {
   if (globalMCPServerInstance) {
-    console.log('🔄 Clearing existing MCP Server instance for fresh demo...');
-    clearGlobalMCPServerInstance();
+    console.log('🔄 Resetting MCP Server for fresh demo...');
+    globalMCPServerInstance.cleanup();
+  }
+  clearGlobalMCPServerInstance();
+}
+
+export async function getOrCreateGlobalMCPServer(MCPServerManagerClass) {
+  // If we already have an instance and it's initialized, return it
+  if (globalMCPServerInstance && globalMCPServerInstance.initialized) {
+    console.log('🔄 Using existing MCP Server instance...');
+    return globalMCPServerInstance;
   }
 
   // If initialization is in progress, wait for it

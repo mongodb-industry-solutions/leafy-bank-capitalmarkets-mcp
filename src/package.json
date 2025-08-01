@@ -13,6 +13,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-sdk/client-bedrock": "^3.857.0",
+    "@aws-sdk/client-bedrock-runtime": "^3.857.0",
+    "@langchain/aws": "^0.1.0",
+    "@langchain/core": "^0.3.0",
+    "@langchain/langgraph": "^0.1.0",
     "@leafygreen-ui/badge": "^8.0.2",
     "@leafygreen-ui/button": "^21.0.9",
     "@leafygreen-ui/card": "^10.0.5",
@@ -29,12 +34,13 @@
     "mongodb": "^6.10.0",
     "next": "^14.2.30",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "zod": "^3.22.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.0",
-    "@babel/preset-env": "^7.24.0",
-    "@babel/preset-react": "^7.23.3",
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
+    "@babel/preset-react": "^7.27.1",
     "eslint": "8.54.0",
     "eslint-config-next": "14.2.3",
     "nodemon": "^3.0.2"
