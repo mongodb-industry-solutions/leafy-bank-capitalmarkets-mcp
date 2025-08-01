@@ -1,34 +1,31 @@
 import { NextResponse } from 'next/server';
+import { getOrCreateGlobalMCPServer, resetGlobalMCPServer } from '@/lib/global-mcp-store';
 import { MCPServerManager } from '@/lib/mcp-server';
-import { getOrCreateGlobalMCPServer } from '@/lib/global-mcp-store';
 
-export async function GET() {
+export async function GET(request) {
   try {
+    const { searchParams } = new URL(request.url);
+    const reset = searchParams.get('reset');
+    
+    // If reset parameter is provided, reset the MCP server
+    if (reset === 'true') {
+      console.log('🔄 Resetting MCP Server for fresh demo...');
+      resetGlobalMCPServer();
+    }
+    
+    // Get MCP server instance
     const mcpServer = await getOrCreateGlobalMCPServer(MCPServerManager);
     
     if (!mcpServer) {
       return NextResponse.json({
-        health: {
-          status: 'unavailable',
-          timestamp: new Date().toISOString(),
-          mcpServer: 'not available',
-          note: 'MCP Server not initialized'
-        },
-        toolCalls: {
-          totalCalls: 0,
-          recentCalls: [],
-          stats: { completed: 0, executing: 0, error: 0 }
-        },
-        consoleLogs: {
-          logs: [],
-          totalLogs: 0,
-          stats: { info: 0, notifications: 0, errors: 0, success: 0 }
-        },
+        health: { status: 'unavailable', message: 'MCP Server not available' },
+        toolCalls: { totalCalls: 0, recentCalls: [] },
+        consoleLogs: { totalLogs: 0, logs: [] },
         availableTools: []
       });
     }
     
-    // Get all status data from the same instance
+    // Get status data
     const healthStatus = mcpServer.getHealthStatus();
     const toolCalls = mcpServer.getToolCalls();
     const consoleLogs = mcpServer.getConsoleLogs();
@@ -40,26 +37,13 @@ export async function GET() {
       consoleLogs: consoleLogs,
       availableTools: availableTools
     });
+    
   } catch (error) {
-    console.error('Error getting MCP status:', error);
+    console.error('❌ Error getting MCP status:', error);
     return NextResponse.json({
-      health: {
-        status: 'error',
-        timestamp: new Date().toISOString(),
-        mcpServer: 'error',
-        error: error.message,
-        note: 'Error occurred while getting MCP status'
-      },
-      toolCalls: {
-        totalCalls: 0,
-        recentCalls: [],
-        stats: { completed: 0, executing: 0, error: 0 }
-      },
-      consoleLogs: {
-        logs: [],
-        totalLogs: 0,
-        stats: { info: 0, notifications: 0, errors: 0, success: 0 }
-      },
+      health: { status: 'error', message: error.message },
+      toolCalls: { totalCalls: 0, recentCalls: [] },
+      consoleLogs: { totalLogs: 0, logs: [] },
       availableTools: []
     }, { status: 500 });
   }

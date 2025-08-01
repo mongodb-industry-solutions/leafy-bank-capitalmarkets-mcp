@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 
-const Typewriter = ({ text, speed = 10, messageId, completedMessages, markCompleted }) => {
+const Typewriter = ({ text, speed = 5, messageId, completedMessages, markCompleted }) => {
   const [displayedText, setDisplayedText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const intervalRef = useRef(null);
