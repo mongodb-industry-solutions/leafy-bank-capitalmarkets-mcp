@@ -184,73 +184,12 @@ export async function POST(request) {
       console.log('✅ ReAct Agent processed question successfully');
       mcpServer.addConsoleLog('✅ ReAct Agent processed question successfully');
       
-      // Get the tracking data for reflection (reuse from earlier if available)
+      // Get the tracking data if we haven't already
       if (!mcpToolCallsData) {
         mcpToolCallsData = mcpServer.getToolCalls();
       }
       if (!mcpConsoleLogsData) {
         mcpConsoleLogsData = mcpServer.getConsoleLogs();
-      }
-      
-      // Extract the actual tool calls and their parameters
-      const trackedToolCalls = mcpToolCallsData.recentCalls || [];
-      
-      // If we have tool calls, ask the agent to reflect on them and provide a complete answer
-      if (trackedToolCalls.length > 0 && finalAnswer) {
-        console.log('🔄 Asking agent to reflect on tool calls and provide complete answer...');
-        
-        // Create a reflection prompt with the tracking data
-        const reflectionPrompt = `Based on the operations performed and their results, provide a complete answer.
-
-TRACKED OPERATIONS:
-${trackedToolCalls.map((call, idx) => {
-  const params = JSON.stringify(call.params, null, 2);
-  return `${idx + 1}. Tool: ${call.tool}
-   Parameters: ${params}
-   Status: ${call.status}`;
-}).join('\n\n')}
-
-INITIAL ANALYSIS: ${finalAnswer}
-
-IMPORTANT: 
-1. Look at the tool parameters above, especially any date filters used
-2. If this was a time-based aggregation, extract the date range from the parameters
-3. Provide a complete answer that includes:
-   - The date range used (if applicable)
-   - The results in a clear format
-   - Any relevant context
-
-Your complete answer:`;
-
-        try {
-          // Ask the agent to reflect and provide a complete answer
-          const reflectionStream = await processQuestionWithReactAgent(reflectionPrompt);
-          let reflectedAnswer = '';
-          
-          for await (const chunk of reflectionStream) {
-            if (chunk.agent && chunk.agent.messages) {
-              for (const message of chunk.agent.messages) {
-                if (message.content) {
-                  if (typeof message.content === 'string') {
-                    reflectedAnswer = message.content;
-                  } else if (Array.isArray(message.content)) {
-                    reflectedAnswer = message.content
-                      .map(item => typeof item === 'string' ? item : JSON.stringify(item))
-                      .join(' ');
-                  }
-                }
-              }
-            }
-          }
-          
-          if (reflectedAnswer && reflectedAnswer.length > 10) {
-            finalAnswer = reflectedAnswer;
-            console.log('✅ Agent reflected on operations and provided complete answer');
-          }
-        } catch (reflectionError) {
-          console.error('⚠️ Reflection failed, using original answer:', reflectionError);
-          // Keep the original answer if reflection fails
-        }
       }
       
     } catch (error) {

@@ -65,7 +65,7 @@ The ReAct Agent can handle a wide variety of natural language queries:
 - `"BTC daily statistics"` → Uses `aggregate` tool
 - `"Bitcoin price today"` → Uses `find` tool
 - `"Show me ETH price trend"` → Uses `find` tool with sorting
-- `"Calculate volatility for ETH over the last 30 days"` → Uses `aggregate` tool
+- `"Compare BTC and ETH prices over the last week"` → Uses `find` or `aggregate` tools
 
 ### **Stock Data**
 - `"Show me Apple stock price"` → Uses `find` tool

@@ -42,11 +42,10 @@ const ChatInterface = () => {
     const suggestions = [
         "List collections in the database",
         "What is the latest available BTC close price?",
+        "Show me price trends for ETH over the last 7 days",
+        "What is the latest available GLD close price?",
         "What are the average trading volumes for SPY on the last 7 days?",
-        "Calculate volatility for ETH over the last week",
-        "Compare BTC and ETH performance over the last week",
-        "Show me price trends for GLD",
-        "What is the current price of SPY?"
+        "Compare BTC and ETH prices over the last week"
     ];
 
     const [suggestionIndex, setSuggestionIndex] = useState(0);
@@ -179,10 +178,9 @@ const ChatInterface = () => {
                     <div className={styles.headerContent}>
                         <div className={styles.headerLeft}>
                             <H1 className={styles.title}>📊 Financial Data Analysis - MongoDB MCP Server Demo</H1>
-                            <Body className={styles.subtitle}>AI-powered financial insights using MongoDB MCP Server with ReAct Agent</Body>
+                            <Body className={styles.subtitle}>AI-powered financial insights using MongoDB MCP Server</Body>
                         </div>
                         <div className={styles.headerRight}>
-                            <Badge variant="green">ReAct Agent</Badge>
                             <Badge variant="blue">Live Demo</Badge>
                             <IconButton 
                                 aria-label="Info"
@@ -246,19 +244,29 @@ const ChatInterface = () => {
                                             </Body>
                                         </div>
                                         <Body>
-                                            <strong>🤖 ReAct Agent Capabilities:</strong> I can handle complex questions about:
                                             <br /><br />
+                                            <strong>🤖 What I Can Help You With:</strong>
+                                            
                                             • <strong>Database exploration</strong> - List collections in the database<br />
-                                            • <strong>Latest prices</strong> - What is the latest available BTC close price?<br />
-                                            • <strong>Volume analysis</strong> - What are the average trading volumes for SPY on the last 7 days?<br />
-                                            • <strong>Volatility calculations</strong> - Calculate volatility for ETH over the last week<br />
-                                            • <strong>Performance comparisons</strong> - Compare BTC and ETH performance over the last week<br />
-                                            • <strong>Price trends</strong> - Show me price trends for GLD<br />
-                                            • <strong>Current prices</strong> - What is the current price of SPY?
+                                            • <strong>Latest prices</strong> - Get current prices for any supported asset<br />
+                                            • <strong>Price trends</strong> - Show daily price averages over time periods<br />
+                                            • <strong>Volume analysis</strong> - Calculate average trading volumes<br />
+                                            • <strong>Price comparisons</strong> - Compare prices between different assets<br />
+                                            <br />
+                                            <strong>📅 Time Range Flexibility:</strong><br />
+                                            • Default: Last 7 days when not specified<br />
+                                            • Maximum: Up to 60 days (8 weeks or 2 months)<br />
+                                            • Accepts: last week, past 2 weeks, last month, etc.
                                         </Body>
                                         <Body>
-                                            <strong>🔧 Available MCP Tools:</strong>
                                             <br /><br />
+                                            <strong>💡 Try asking me:</strong> Use the suggestions below or ask about any supported asset!
+                                            
+                                            <strong>⚠️ Demo Limitations:</strong> This demo showcases basic MongoDB MCP Server capabilities. Complex calculations like volatility, moving averages, RSI, and other technical indicators are not supported. For advanced use cases, explore a full implementation.
+                                        </Body>
+                                        <Body>
+                                            <br /><br />
+                                            <strong>🔧 Available MCP Tools:</strong>
                                             • <strong>Find</strong> - Query documents from collections<br />
                                             • <strong>Aggregate</strong> - Run complex data pipelines<br />
                                             • <strong>List</strong> - Show databases, collections, and indexes
@@ -332,7 +340,7 @@ const ChatInterface = () => {
                     {isAsking && (
                         <div className={styles.thinkingSection}>
                             <Skeleton />
-                            <div className={styles.thinkingMessage}>Processing your request with ReAct Agent...</div>
+                            <div className={styles.thinkingMessage}>The agent is thinking</div>
                         </div>
                     )}
                 </div>
@@ -552,7 +560,8 @@ const ChatInterface = () => {
                                 <li>This demo operates in <strong>read-only mode</strong> for security</li>
                                 <li>Create, update, and delete operations are intentionally disabled</li>
                                 <li>Only list, find, and aggregate operations are permitted</li>
-                                <li>This prevents any unintended changes to our database</li>
+                                <li>Historical data analysis only (no predictions or trading advice)</li>
+                                <li>Maximum time range: 60 days (8 weeks or 2 months)</li>
                                 <li>Each page reload starts a fresh demo session</li>
                             </ul>
                         </Body>
@@ -575,13 +584,12 @@ const ChatInterface = () => {
                         <Body>
                             <strong>Example Queries:</strong>
                             <ul>
-                                <li>What is the latest BTC price?</li>
-                                <li>Show me ETH price trend</li>
-                                <li>Calculate volatility for SPY over the last 30 days</li>
-                                <li>What are the average trading volumes for QQQ?</li>
-                                <li>Compare BTC and ETH performance over the last week</li>
-                                <li>Show me price trends for GLD</li>
-                                <li>What collections are available?</li>
+                                <li>List collections in the database</li>
+                                <li>What is the latest available BTC close price?</li>
+                                <li>Show me price trends for ETH over the last 7 days</li>
+                                <li>What is the latest available GLD close price?</li>
+                                <li>What are the average trading volumes for SPY on the last 7 days?</li>
+                                <li>Compare BTC and ETH prices over the last week</li>
                             </ul>
                         </Body>
                     </div>
