@@ -42,7 +42,7 @@ const ChatInterface = () => {
     const suggestions = [
         "List collections in the database",
         "What is the latest available BTC close price?",
-        "Show me price trends for ETH over the last 7 days",
+        "Show me the highest price of ETH close price over the last 14 days",
         "What is the latest available GLD close price?",
         "What are the average trading volumes for SPY on the last 7 days?",
         "Compare BTC and ETH prices over the last week"
@@ -586,7 +586,7 @@ const ChatInterface = () => {
                             <ul>
                                 <li>List collections in the database</li>
                                 <li>What is the latest available BTC close price?</li>
-                                <li>Show me price trends for ETH over the last 7 days</li>
+                                <li>Show me the highest price of ETH close price over the last 14 days</li>
                                 <li>What is the latest available GLD close price?</li>
                                 <li>What are the average trading volumes for SPY on the last 7 days?</li>
                                 <li>Compare BTC and ETH prices over the last week</li>
