@@ -42,7 +42,7 @@ const ChatInterface = () => {
     const suggestions = [
         "List collections in the database",
         "What is the latest available BTC close price?",
-        "Show me price trends for ETH over the last 7 days",
+        "Show me the highest price of ETH close price over the last 14 days",
         "What is the latest available GLD close price?",
         "What are the average trading volumes for SPY on the last 7 days?",
         "Compare BTC and ETH prices over the last week"
@@ -235,42 +235,73 @@ const ChatInterface = () => {
                                             Hi there! 👋 I am connected to MongoDB through the MCP Server in <strong>read-only mode</strong>. I use an AI-powered ReAct Agent that can understand natural language queries and automatically choose the right MCP tools.
                                         </Body>
                                         <div className={styles.demoRestrictions}>
-                                            <Body>
+                                            <Body className={styles.messageSubtitle}>
                                                 <strong>🎯 Demo Focus:</strong> This demo is specifically configured to showcase MongoDB MCP Server capabilities for <strong>financial time series data</strong>:
-                                                <br /><br />
-                                                • <strong>Cryptocurrencies:</strong> BTC, ETH, XRP, SOL, DOGE, ADA<br />
-                                                • <strong>Stocks/ETFs:</strong> HYG, LQD, TLT, GLD, USO, EEM, QQQ, SPY, XLE, VNQ<br />
+                                            </Body>
+                                            <Body className={styles.messageListItem}>
+                                                • <strong>Cryptocurrencies:</strong> BTC, ETH, XRP, SOL, DOGE, ADA
+                                            </Body>
+                                            <Body className={styles.messageListItem}>
+                                                • <strong>Stocks/ETFs:</strong> HYG, LQD, TLT, GLD, USO, EEM, QQQ, SPY, XLE, VNQ
+                                            </Body>
+                                            <Body className={styles.messageListItem}>
                                                 • <strong>Collections:</strong> binanceCryptoData (crypto) and yfinanceMarketData (stocks)
                                             </Body>
                                         </div>
-                                        <Body>
-                                            <br /><br />
-                                            <strong>🤖 What I Can Help You With:</strong>
-                                            
-                                            • <strong>Database exploration</strong> - List collections in the database<br />
-                                            • <strong>Latest prices</strong> - Get current prices for any supported asset<br />
-                                            • <strong>Price trends</strong> - Show daily price averages over time periods<br />
-                                            • <strong>Volume analysis</strong> - Calculate average trading volumes<br />
-                                            • <strong>Price comparisons</strong> - Compare prices between different assets<br />
-                                            <br />
-                                            <strong>📅 Time Range Flexibility:</strong><br />
-                                            • Default: Last 7 days when not specified<br />
-                                            • Maximum: Up to 60 days (8 weeks or 2 months)<br />
-                                            • Accepts: last week, past 2 weeks, last month, etc.
-                                        </Body>
-                                        <Body>
-                                            <br /><br />
-                                            <strong>💡 Try asking me:</strong> Use the suggestions below or ask about any supported asset!
-                                            
-                                            <strong>⚠️ Demo Limitations:</strong> This demo showcases basic MongoDB MCP Server capabilities. Complex calculations like volatility, moving averages, RSI, and other technical indicators are not supported. For advanced use cases, explore a full implementation.
-                                        </Body>
-                                        <Body>
-                                            <br /><br />
-                                            <strong>🔧 Available MCP Tools:</strong>
-                                            • <strong>Find</strong> - Query documents from collections<br />
-                                            • <strong>Aggregate</strong> - Run complex data pipelines<br />
-                                            • <strong>List</strong> - Show databases, collections, and indexes
-                                        </Body>
+                                        <div className={styles.messageSection}>
+                                            <Body className={styles.messageSectionTitle}>
+                                                <strong>🤖 What I Can Help You With:</strong>
+                                            </Body>
+                                            <Body className={styles.messageListItem}>
+                                                • <strong>Database exploration</strong> - List collections in the database
+                                            </Body>
+                                            <Body className={styles.messageListItem}>
+                                                • <strong>Latest prices</strong> - Get current prices for any supported asset
+                                            </Body>
+                                            <Body className={styles.messageListItem}>
+                                                • <strong>Price trends</strong> - Show daily price averages over time periods
+                                            </Body>
+                                            <Body className={styles.messageListItem}>
+                                                • <strong>Volume analysis</strong> - Calculate average trading volumes
+                                            </Body>
+                                            <Body className={styles.messageListItem}>
+                                                • <strong>Price comparisons</strong> - Compare prices between different assets
+                                            </Body>
+                                            <Body className={styles.messageSubsection}>
+                                                <strong>📅 Time Range Flexibility:</strong>
+                                            </Body>
+                                            <Body className={styles.messageListItem}>
+                                                • Default: Last 7 days when not specified
+                                            </Body>
+                                            <Body className={styles.messageListItem}>
+                                                • Maximum: Up to 60 days (8 weeks or 2 months)
+                                            </Body>
+                                            <Body className={styles.messageListItem}>
+                                                • Accepts: last week, past 2 weeks, last month, etc.
+                                            </Body>
+                                        </div>
+                                        <div className={styles.messageSection}>
+                                            <Body className={styles.messageParagraph}>
+                                                <strong>💡 Try asking me:</strong> Use the suggestions below or ask about any supported asset!
+                                            </Body>
+                                            <Body>
+                                                <strong>⚠️ Demo Limitations:</strong> This demo showcases basic MongoDB MCP Server capabilities. Complex calculations like volatility, moving averages, RSI, and other technical indicators are not supported. For advanced use cases, explore a full implementation.
+                                            </Body>
+                                        </div>
+                                        <div className={styles.messageSection}>
+                                            <Body className={styles.messageSectionTitle}>
+                                                <strong>🔧 Available MCP Tools:</strong>
+                                            </Body>
+                                            <Body className={styles.messageListItem}>
+                                                • <strong>Find</strong> - Query documents from collections
+                                            </Body>
+                                            <Body className={styles.messageListItem}>
+                                                • <strong>Aggregate</strong> - Run complex data pipelines
+                                            </Body>
+                                            <Body className={styles.messageListItem}>
+                                                • <strong>List</strong> - Show databases, collections, and indexes
+                                            </Body>
+                                        </div>
                                     </>
                                 ) : (
                                     <Body>
@@ -367,10 +398,10 @@ const ChatInterface = () => {
                             value={query}
                             onChange={handleChange}
                             placeholder={mcpServerReady ? "Ask me about BTC, stocks, or financial data..." : "MCP Server is loading..."}
-                            size="large"
+                            size="default"
                             className={styles.chatInput}
                             disabled={!mcpServerReady}
-                            label="Chat Input"
+                            label="Pick a suggestion from above or enter your question here:"
                             aria-label="Chat input field"
                             onKeyPress={(e) => {
                                 if (e.key === 'Enter' && !isAsking && query && mcpServerReady) {
@@ -381,10 +412,11 @@ const ChatInterface = () => {
                         <Button 
                             onClick={handleAsk} 
                             variant="primary" 
-                            size="large"
+                            size="default"
+                            className={styles.askButton}
                             disabled={!query || isAsking || !mcpServerReady}
                         >
-                            {isAsking ? "Processing..." : mcpServerReady ? "Send" : "Loading..."}
+                            {isAsking ? "Processing..." : mcpServerReady ? "Ask" : "Loading..."}
                         </Button>
                     </div>
                 </div>
@@ -586,7 +618,7 @@ const ChatInterface = () => {
                             <ul>
                                 <li>List collections in the database</li>
                                 <li>What is the latest available BTC close price?</li>
-                                <li>Show me price trends for ETH over the last 7 days</li>
+                                <li>Show me the highest price of ETH close price over the last 14 days</li>
                                 <li>What is the latest available GLD close price?</li>
                                 <li>What are the average trading volumes for SPY on the last 7 days?</li>
                                 <li>Compare BTC and ETH prices over the last week</li>

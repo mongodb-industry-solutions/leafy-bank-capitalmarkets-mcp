@@ -85,14 +85,15 @@ export const mcpFindTool = new DynamicStructuredTool({
 // Tool to aggregate data from MongoDB collections
 export const mcpAggregateTool = new DynamicStructuredTool({
   name: "mcp_aggregate",
-  description: "Perform aggregation operations on MongoDB collections. Use this for calculating averages, statistics, trends, or complex analysis for crypto (BTC, ETH, XRP, SOL, DOGE, ADA) or stock (HYG, LQD, TLT, GLD, USO, EEM, QQQ, SPY, XLE, VNQ) assets.",
+  description: "Perform aggregation operations on MongoDB collections. IMPORTANT: Use 'max' for highest/maximum queries, 'min' for lowest/minimum queries, 'stats' ONLY when multiple statistics are needed. For crypto (BTC, ETH, XRP, SOL, DOGE, ADA) or stock (HYG, LQD, TLT, GLD, USO, EEM, QQQ, SPY, XLE, VNQ) assets.",
   schema: z.object({
     symbol: z.string().describe("The asset symbol to analyze (e.g., 'BTC', 'ETH', 'SPY', 'QQQ')"),
-    operation: z.string().describe("The aggregation operation: 'stats' (basic statistics), 'trend' (price trends), 'volatility' (price volatility), 'volume' (volume analysis), 'custom' (custom pipeline)"),
+    operation: z.string().describe("The aggregation operation: 'max' (find maximum value), 'min' (find minimum value), 'stats' (all statistics), 'trend' (price trends), 'volatility' (price volatility), 'volume' (volume analysis), 'custom' (custom pipeline)"),
+    field: z.string().optional().default('close').describe("The field to analyze for max/min operations (e.g., 'close', 'open', 'high', 'low', 'volume')"),
     days: z.number().optional().default(30).describe("Number of days to analyze (for time-based operations)"),
     customPipeline: z.string().optional().describe("Custom aggregation pipeline in JSON format (only for 'custom' operation)")
   }),
-  func: async ({ symbol, operation, days, customPipeline }) => {
+  func: async ({ symbol, operation, field, days, customPipeline }) => {
     try {
       const mcpServer = await getOrCreateGlobalMCPServer(MCPServerManager);
       if (!mcpServer) {
@@ -126,6 +127,28 @@ export const mcpAggregateTool = new DynamicStructuredTool({
 
       // Add operation-specific stages
       switch (operation) {
+        case 'max':
+          pipeline.push({
+            $group: {
+              _id: null,
+              maxValue: { $max: `$${field}` },
+              timestamp: { $last: '$timestamp' },
+              count: { $sum: 1 }
+            }
+          });
+          break;
+          
+        case 'min':
+          pipeline.push({
+            $group: {
+              _id: null,
+              minValue: { $min: `$${field}` },
+              timestamp: { $last: '$timestamp' },
+              count: { $sum: 1 }
+            }
+          });
+          break;
+          
         case 'stats':
           pipeline.push({
             $group: {
@@ -201,7 +224,7 @@ export const mcpAggregateTool = new DynamicStructuredTool({
           break;
           
         default:
-          throw new Error(`Unknown operation: ${operation}. Supported operations: stats, trend, volatility, volume, custom`);
+          throw new Error(`Unknown operation: ${operation}. Supported operations: max, min, stats, trend, volatility, volume, custom`);
       }
 
       const params = {

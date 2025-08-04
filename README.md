@@ -97,10 +97,10 @@ The ReAct Agent can handle these specific query patterns:
 - `"What is the latest available GLD close price?"`
 - Returns the most recent closing price for any supported asset
 
-### **3. Price Trends**
-- `"Show me price trends for ETH over the last 7 days"`
+### **3. Price Trends & Analysis**
+- `"Show me the highest price of ETH close price over the last 14 days"`
 - `"Show me price trends for GLD"`
-- Displays daily price averages over the specified period
+- Find highest/lowest prices or display daily price averages over the specified period
 
 ### **4. Volume Analysis**
 - `"What are the average trading volumes for SPY on the last 7 days?"`
