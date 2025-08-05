@@ -45,7 +45,6 @@ This is a **demonstration application** with the following constraints:
 ### ✅ **Pure MCP Protocol Implementation**
 - **NO MongoDB client connections** - Uses only MCP protocol
 - **JSON-RPC communication** with MongoDB MCP Server
-- **Real-time tool calling** with live status tracking
 - **Transparent MCP communication** logs
 
 ### ✅ **Real-time Monitoring**
@@ -60,7 +59,16 @@ This is a **demonstration application** with the following constraints:
 - **Graceful fallback** when parsing fails
 - **Educational value** - see exactly what MCP returns
 
+### ✅ **Developer Tools & Debugging**
+- **AWS Debug endpoint** for troubleshooting credentials
+- **Bedrock Status endpoint** with connection testing
+- **MCP Server reset** capability for fresh demos
+- **Available tools listing** for API discovery
+- **Comprehensive error logging** at every layer
+
 ## 🛠 **Architecture**
+
+See the detailed [System Architecture Diagram](architecture/system-architecture.md) for a comprehensive view of all components and their interactions.
 
 ```
 ┌─────────────────┐    JSON-RPC    ┌──────────────────┐    MongoDB    ┌─────────────────┐
@@ -136,6 +144,14 @@ The ReAct Agent can handle these specific query patterns:
 - **Raw JSON-RPC messages** for debugging
 - **Auto-scrolling** to latest entries
 
+### **UI Framework**
+- Built with **MongoDB LeafyGreen UI** component library
+- **Responsive design** with professional MongoDB styling
+- **Dark mode support** via LeafygreenProvider
+- **Accessible components** following WCAG guidelines
+- **Interactive elements**: Modal dialogs, badges, skeleton loaders
+- **Typewriter animation** for AI responses
+
 ## 🔧 **Technical Implementation**
 
 ### **AWS Bedrock Client**
@@ -184,6 +200,19 @@ mcpProcess.stdin.write(JSON.stringify(request) + '\n');
 - **Status tracking** (executing → completed/error)
 - **Parameter logging** for transparency
 - **Timing information** for performance monitoring
+
+### **Real-time Updates Implementation**
+- **2-second polling interval** for MCP data refresh
+- **Non-blocking UI updates** during data fetch
+- **Conditional rendering** to prevent unnecessary re-renders
+- **Efficient state management** with React hooks
+
+### **Global MCP Store (Singleton Pattern)**
+- **Single MCP server instance** shared across all API routes
+- **Prevents multiple server spawns** for better resource management
+- **Centralized state management** for tool calls and logs
+- **Thread-safe operations** with proper lifecycle management
+- **Reset capability** for fresh demo sessions
 
 ## 🚀 **Quick Start with Docker**
 
@@ -303,6 +332,24 @@ Replace the placeholders:
 - `<YOUR_API_CLIENT_ID>`: Your API client ID
 - `<YOUR_API_CLIENT_SECRET>`: Your API client secret
 
+### **Environment Variable Configuration**
+
+The application supports multiple environment variable formats for flexibility:
+
+#### **MongoDB Configuration**
+- `NEXT_PUBLIC_MCP_CONNECTION_STRING` - MongoDB connection string
+- `NEXT_PUBLIC_MCP_API_CLIENT_ID` - API client ID for MCP server
+- `NEXT_PUBLIC_MCP_API_CLIENT_SECRET` - API client secret for MCP server
+
+#### **AWS Configuration**
+- `AWS_REGION` or `NEXT_PUBLIC_AWS_REGION` - AWS region (default: us-east-1)
+- `AWS_PROFILE` or `NEXT_PUBLIC_AWS_PROFILE` - AWS profile name (default: default)
+- `CHAT_COMPLETIONS_MODEL_ID` or `NEXT_PUBLIC_CHAT_COMPLETIONS_MODEL_ID` - Bedrock model ID
+- `AWS_SHARED_CREDENTIALS_FILE` - Path to AWS credentials file (auto-mounted in Docker)
+- `AWS_CONFIG_FILE` - Path to AWS config file (auto-mounted in Docker)
+
+The application intelligently checks both standard and `NEXT_PUBLIC_` prefixed variables for maximum compatibility.
+
 ### **Running the Demo with Docker**
 
 #### **1. Clone the Repository**
@@ -415,6 +462,81 @@ Get MCP server communication logs.
 
 ### **GET /api/mcp/health**
 Health check with MCP server status.
+
+### **GET /api/mcp/bedrock-status**
+Check AWS Bedrock client status and optionally test connection.
+
+**Query Parameters:**
+- `test=true` - Perform actual connection test to AWS Bedrock
+
+**Response:**
+```json
+{
+  "timestamp": "2025-07-31T09:46:11.000Z",
+  "status": {
+    "initialized": true,
+    "region": "us-east-1",
+    "modelId": "anthropic.claude-3-haiku-20240307-v1:0"
+  },
+  "connectionTest": {
+    "success": true,
+    "message": "Connection successful"
+  },
+  "environment": {
+    "nodeEnv": "production",
+    "awsRegion": "us-east-1",
+    "hasAwsProfile": true
+  }
+}
+```
+
+### **GET /api/mcp/aws-debug**
+Debug AWS credentials and configuration issues.
+
+**Response:**
+```json
+{
+  "success": true,
+  "message": "AWS credentials working!",
+  "environment": {
+    "AWS_REGION": "us-east-1",
+    "AWS_PROFILE": "default"
+  },
+  "credentialFileExists": true,
+  "configFileExists": true,
+  "modelsFound": 12
+}
+```
+
+### **GET /api/mcp/status?reset=true**
+Get system status with option to reset MCP server for fresh demos.
+
+**Query Parameters:**
+- `reset=true` - Reset the MCP server instance
+
+### **GET /api/mcp/tools**
+List all available MCP tools.
+
+**Response:**
+```json
+{
+  "count": 3,
+  "tools": [
+    {
+      "name": "find",
+      "description": "Find documents from MongoDB collections..."
+    },
+    {
+      "name": "aggregate",
+      "description": "Perform aggregation operations..."
+    },
+    {
+      "name": "list-collections",
+      "description": "List collections in a database..."
+    }
+  ]
+}
+```
 
 ## 🎯 **Demo Scenarios**
 
@@ -534,6 +656,41 @@ aws bedrock list-foundation-models --region us-east-1 --profile default
 - **Permission denied**: Check Docker daemon is running
 - **AWS credentials not found**: Ensure `~/.aws` directory exists on host
 - **Environment variables not loaded**: Check `.env` file is in project root
+
+### **Developer Tools & Debugging**
+
+#### **1. AWS Debug Endpoint**
+```bash
+# Test AWS credentials and configuration
+curl http://localhost:3000/api/mcp/aws-debug
+```
+
+#### **2. Bedrock Status Check**
+```bash
+# Check Bedrock client status
+curl http://localhost:3000/api/mcp/bedrock-status
+
+# Test actual Bedrock connection
+curl http://localhost:3000/api/mcp/bedrock-status?test=true
+```
+
+#### **3. MCP Server Reset**
+```bash
+# Reset MCP server for a fresh demo
+curl http://localhost:3000/api/mcp/status?reset=true
+```
+
+#### **4. View Available Tools**
+```bash
+# List all available MCP tools
+curl http://localhost:3000/api/mcp/tools
+```
+
+#### **5. Real-time Monitoring**
+- Open browser DevTools to see console logs
+- Monitor Network tab for API calls
+- Check Console Logs panel for MCP communication
+- View Tool Calls panel for execution tracking
 
 ## 🤝 **Contributing**
 
