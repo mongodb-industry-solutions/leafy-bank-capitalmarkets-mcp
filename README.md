@@ -692,10 +692,6 @@ curl http://localhost:3000/api/mcp/tools
 - Check Console Logs panel for MCP communication
 - View Tool Calls panel for execution tracking
 
-## 🤝 **Contributing**
-
-This demo is designed to showcase MongoDB MCP Server capabilities with ReAct Agent integration. Contributions that improve the educational value or demonstrate additional MCP features are welcome.
-
 ## 📄 **License**
 
 This project is for educational and demonstration purposes. 
