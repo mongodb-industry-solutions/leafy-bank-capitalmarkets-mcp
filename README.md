@@ -16,6 +16,8 @@ Key benefits of MCP include:
 
 MongoDB has announced the [MongoDB MCP Server](https://www.mongodb.com/company/blog/announcing-mongodb-mcp-server), which enables developer tools with MCP clients to interact directly with MongoDB databases. This server handles a range of administrative tasks, such as managing cluster resources, as well as data-related operations like querying and indexing.
 
+This demo uses the official [mongodb-mcp-server](https://github.com/mongodb-js/mongodb-mcp-server) npm package, which provides the MCP protocol implementation for MongoDB.
+
 ![MongoDB MCP Server Overview](architecture/mcp-general-idea-diagram.png)
 
 The MongoDB MCP Server enables integration with popular development tools:
@@ -208,6 +210,9 @@ const stream = await agent.stream({
 ```
 
 ### **MCP Server Communication**
+
+The application spawns the [mongodb-mcp-server](https://github.com/mongodb-js/mongodb-mcp-server) as a child process and communicates via JSON-RPC:
+
 ```javascript
 // Spawn MongoDB MCP Server process
 mcpProcess = spawn('npx', [
@@ -722,6 +727,22 @@ curl http://localhost:3000/api/mcp/tools
 - Monitor Network tab for API calls
 - Check Console Logs panel for MCP communication
 - View Tool Calls panel for execution tracking
+
+## 📚 **Additional Resources**
+
+### **Setting up MongoDB MCP Server with Cursor**
+
+Want to use MongoDB MCP Server in your own development workflow? Check out this excellent video tutorial:
+
+▶️ **[How to Configure MongoDB MCP Server with Cursor](https://www.youtube.com/watch?v=jCD7A7qnxyw)**
+
+This video provides a clear step-by-step guide on setting up MongoDB MCP Server with Cursor. It's perfect to share after the demo, as it showcases the real potential of MCP when used in advanced development tools.
+
+### **Learn More**
+
+- **[MongoDB MCP Server GitHub Repository](https://github.com/mongodb-js/mongodb-mcp-server)** - Official implementation and documentation
+- **[MongoDB MCP Server Announcement](https://www.mongodb.com/company/blog/announcing-mongodb-mcp-server)** - Full details about MongoDB's MCP implementation
+- **[Model Context Protocol Documentation](https://modelcontextprotocol.io/overview)** - Learn more about the MCP standard
 
 ## 📄 **License**
 
