@@ -2,13 +2,46 @@
 
 A real-time chat application that demonstrates the power of the **MongoDB MCP Server** combined with an **AI-powered ReAct Agent** to enable intelligent natural language queries to financial data stored in MongoDB Atlas.
 
-## 🚨 **IMPORTANT: Docker Required**
+## 🔌 **What is Model Context Protocol (MCP)?**
 
-The application requires the `mongodb-mcp-server` npm package which is installed and configured within the Docker container. Running this locally without Docker is not supported as it would require manual installation and configuration of the MCP server dependencies.
+The [Model Context Protocol (MCP)](https://modelcontextprotocol.io/overview) is an open standard introduced by Anthropic that enables seamless communication between AI assistants and external data systems. MCP provides a universal protocol for connecting Large Language Models (LLMs) to diverse data sources, allowing AI agents to access real-time, contextually relevant information.
+
+Key benefits of MCP include:
+- **Standardized Communication**: A unified protocol for AI-to-data interactions
+- **Tool Integration**: Direct access to external systems from within AI workflows
+- **Context Preservation**: Maintains conversational context while accessing external data
+- **Security**: Built-in authentication and authorization mechanisms
+
+## 🍃 **MongoDB MCP Server: Connecting AI to MongoDB**
+
+MongoDB has announced the [MongoDB MCP Server](https://www.mongodb.com/company/blog/announcing-mongodb-mcp-server), which enables developer tools with MCP clients to interact directly with MongoDB databases. This server handles a range of administrative tasks, such as managing cluster resources, as well as data-related operations like querying and indexing.
+
+![MongoDB MCP Server Overview](architecture/mcp-general-idea-diagram.png)
+
+The MongoDB MCP Server enables integration with popular development tools:
+- **Windsurf** - AI code editor with built-in MongoDB MCP support
+- **Cursor** - AI-powered code editor
+- **Visual Studio Code** - Via GitHub Copilot integration
+- **Claude Desktop** - Anthropic's AI assistant
+
+With the MongoDB MCP Server, developers can:
+- **Effortless data exploration**: Use natural language to explore database schemas and data
+- **Streamlined database management**: Perform administrative tasks through conversational interfaces
+- **Context-aware code generation**: Generate MongoDB queries and application code based on your data structure
 
 ## 🎯 **Demo Purpose**
 
 This application showcases how **Model Context Protocol (MCP)** enables AI assistants to directly interact with databases through standardized tools, enhanced with intelligent natural language processing via AWS Bedrock and the ReAct (Reasoning and Acting) framework for financial data analysis.
+
+## 🏗️ **High Level Architecture**
+
+This demo application demonstrates a complete implementation of the MongoDB MCP Server integrated with an AI ReAct Agent:
+
+![High Level Architecture](architecture/diagram.png)
+
+## 🚨 **IMPORTANT: Docker Required**
+
+The application requires the `mongodb-mcp-server` npm package which is installed and configured within the Docker container. Running this locally without Docker is not supported as it would require manual installation and configuration of the MCP server dependencies.
 
 ## 📋 **Demo Limitations**
 
@@ -66,9 +99,7 @@ This is a **demonstration application** with the following constraints:
 - **Available tools listing** for API discovery
 - **Comprehensive error logging** at every layer
 
-## 🛠 **Architecture**
-
-See the detailed [System Architecture Diagram](architecture/system-architecture.md) for a comprehensive view of all components and their interactions.
+## 🛠 **Technical Architecture**
 
 ```
 ┌─────────────────┐    JSON-RPC    ┌──────────────────┐    MongoDB    ┌─────────────────┐
