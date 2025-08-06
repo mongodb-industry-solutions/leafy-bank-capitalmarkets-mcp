@@ -2,8 +2,11 @@ import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 
 export const metadata = {
-  title: "MongoDB MCP Server Demo",
-  description: "Financial Data Analysis Chat Demo using MongoDB MCP Server",
+  title: "Investment Portfolio Management - MCP Interaction",
+  description: "AI-powered financial insights using MongoDB MCP Server",
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({ children }) {
