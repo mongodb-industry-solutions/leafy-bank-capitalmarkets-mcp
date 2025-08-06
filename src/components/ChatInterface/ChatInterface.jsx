@@ -1,18 +1,18 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "./ChatInterface.module.css";
 import { Subtitle, Body, H3, H1 } from "@leafygreen-ui/typography";
 import IconButton from "@leafygreen-ui/icon-button";
 import Icon from "@leafygreen-ui/icon";
 import Badge from "@leafygreen-ui/badge";
 import Button from "@leafygreen-ui/button";
-import TextInput from "@leafygreen-ui/text-input";
 import Card from "@leafygreen-ui/card";
 import Modal from "@leafygreen-ui/modal";
 import { Skeleton } from "@leafygreen-ui/skeleton-loader";
 import Typewriter from "./Typewriter";
 import axios from "axios";
+import Image from "next/image";
 
 function generateThreadId() {
     const now = new Date();
@@ -38,13 +38,16 @@ const ChatInterface = () => {
     const [mcpLoading, setMcpLoading] = useState(true);
     const [mcpServerReady, setMcpServerReady] = useState(false);
     const [showInfoModal, setShowInfoModal] = useState(false);
+    const chatMessagesRef = useRef(null);
 
     const suggestions = [
         "List collections in the database",
         "What is the latest available BTC close price?",
         "Show me the highest price of ETH close price over the last 14 days",
         "What is the latest available GLD close price?",
+        "Show me the lowest price of SOL close price over the last 7 days",
         "What are the average trading volumes for SPY on the last 7 days?",
+        "What is the latest available DOGE open price?",
         "Compare BTC and ETH prices over the last week"
     ];
 
@@ -70,13 +73,22 @@ const ChatInterface = () => {
         }
     }, []);
 
-    const handleChange = (event) => {
-        setQuery(event.target.value);
-    };
+    // Auto-scroll to bottom when messages change
+    useEffect(() => {
+        if (chatMessagesRef.current) {
+            chatMessagesRef.current.scrollTop = chatMessagesRef.current.scrollHeight;
+        }
+    }, [messages]);
 
     const handleSuggestionClick = (suggestion) => {
         setQuery(suggestion);
         setSuggestionIndex((prevIndex) => Math.min(prevIndex + 1, suggestions.length - 1));
+        
+        // Add user message immediately to the chat
+        setMessages(prevMessages => [...prevMessages, { text: suggestion, isUser: true }]);
+        
+        // Then process the question
+        handleAsk(suggestion, true); // Pass true to indicate message already added
     };
 
     const loadMCPData = async (reset = false) => {
@@ -103,11 +115,19 @@ const ChatInterface = () => {
         }
     };
 
-    const handleAsk = async () => {
+    const handleAsk = async (questionText, messageAlreadyAdded = false) => {
+        // Use the passed questionText or fall back to query state
+        const question = questionText || query;
+        if (!question) {
+            console.error('No question to ask');
+            setIsAsking(false);
+            return;
+        }
+        
         setIsAsking(true);
         try {
             // Use React Agent
-            const response = await axios.post('/api/mcp/react-agent', { question: query });
+            const response = await axios.post('/api/mcp/react-agent', { question: question });
             const data = response.data;
             
             console.log('🤖 React Agent response:', data);
@@ -120,18 +140,36 @@ const ChatInterface = () => {
             let answerText = data.finalAnswer || "No answer provided by the agent.";
             
             // Don't append tool results to the main answer text since we'll display them separately
-            setMessages((prevMessages) => [
-                ...prevMessages,
-                { text: query, isUser: true },
-                { 
-                    text: answerText, 
-                    isUser: false, 
-                    toolUsed: 'React Agent',
-                    data: data.toolResults,
-                    toolCalls: data.toolCalls,
-                    isReactAgent: true
+            setMessages((prevMessages) => {
+                // If message wasn't already added, add both user and response
+                if (!messageAlreadyAdded) {
+                    return [
+                        ...prevMessages,
+                        { text: question, isUser: true },
+                        { 
+                            text: answerText, 
+                            isUser: false, 
+                            toolUsed: 'React Agent',
+                            data: data.toolResults,
+                            toolCalls: data.toolCalls,
+                            isReactAgent: true
+                        }
+                    ];
+                } else {
+                    // Just add the response since user message was already added
+                    return [
+                        ...prevMessages,
+                        { 
+                            text: answerText, 
+                            isUser: false, 
+                            toolUsed: 'React Agent',
+                            data: data.toolResults,
+                            toolCalls: data.toolCalls,
+                            isReactAgent: true
+                        }
+                    ];
                 }
-            ]);
+            });
             
             // Update MCP data from the response if available
             if (data.status) {
@@ -155,11 +193,20 @@ const ChatInterface = () => {
             setQuery("");
         } catch (error) {
             console.error("Error:", error);
-            setMessages((prevMessages) => [
-                ...prevMessages,
-                { text: query, isUser: true },
-                { text: `Sorry, I encountered an error processing your request: ${error.message}`, isUser: false }
-            ]);
+            setMessages((prevMessages) => {
+                if (!messageAlreadyAdded) {
+                    return [
+                        ...prevMessages,
+                        { text: question, isUser: true },
+                        { text: `Sorry, I encountered an error processing your request: ${error.message}`, isUser: false }
+                    ];
+                } else {
+                    return [
+                        ...prevMessages,
+                        { text: `Sorry, I encountered an error processing your request: ${error.message}`, isUser: false }
+                    ];
+                }
+            });
         } finally {
             setIsAsking(false);
         }
@@ -177,8 +224,8 @@ const ChatInterface = () => {
                 <div className={styles.header}>
                     <div className={styles.headerContent}>
                         <div className={styles.headerLeft}>
-                            <H1 className={styles.title}>📊 Financial Data Analysis - MongoDB MCP Server Demo</H1>
-                            <Body className={styles.subtitle}>AI-powered financial insights using MongoDB MCP Server</Body>
+                            <H1 className={styles.title}>Investment Portfolio Management - MCP Interaction</H1>
+                            <Body className={styles.subtitle}>📊  AI-powered financial insights using MongoDB MCP Server</Body>
                         </div>
                         <div className={styles.headerRight}>
                             <Badge variant="blue">Live Demo</Badge>
@@ -194,7 +241,7 @@ const ChatInterface = () => {
                 </div>
 
                 {/* Chat Messages */}
-                <div className={styles.chatMessages}>
+                <div className={styles.chatMessages} ref={chatMessagesRef}>
                     {/* Initial message */}
                     <div className={styles.chatMessage}>
                         <div className={`${styles.speechBubble} ${styles.answerBubble}`}>
@@ -232,7 +279,7 @@ const ChatInterface = () => {
                                             </Body>
                                         </div>
                                         <Body>
-                                            Hi there! 👋 I am connected to MongoDB through the MCP Server in <strong>read-only mode</strong>. I use an AI-powered ReAct Agent that can understand natural language queries and automatically choose the right MCP tools.
+                                            Hi there! 👋 I am connected to MongoDB through the MCP Server in <strong>read-only mode</strong>. I use an AI-powered ReAct Agent that processes predefined queries and automatically chooses the right MCP tools.
                                         </Body>
                                         <div className={styles.demoRestrictions}>
                                             <Body className={styles.messageSubtitle}>
@@ -259,9 +306,6 @@ const ChatInterface = () => {
                                                 • <strong>Latest prices</strong> - Get current prices for any supported asset
                                             </Body>
                                             <Body className={styles.messageListItem}>
-                                                • <strong>Price trends</strong> - Show daily price averages over time periods
-                                            </Body>
-                                            <Body className={styles.messageListItem}>
                                                 • <strong>Volume analysis</strong> - Calculate average trading volumes
                                             </Body>
                                             <Body className={styles.messageListItem}>
@@ -282,7 +326,7 @@ const ChatInterface = () => {
                                         </div>
                                         <div className={styles.messageSection}>
                                             <Body className={styles.messageParagraph}>
-                                                <strong>💡 Try asking me:</strong> Use the suggestions below or ask about any supported asset!
+                                                <strong>💡 Get started:</strong> Select a question below to explore financial data insights!
                                             </Body>
                                             <Body>
                                                 <strong>⚠️ Demo Limitations:</strong> This demo showcases basic MongoDB MCP Server capabilities. Complex calculations like volatility, moving averages, RSI, and other technical indicators are not supported. For advanced use cases, explore a full implementation.
@@ -371,7 +415,7 @@ const ChatInterface = () => {
                     {isAsking && (
                         <div className={styles.thinkingSection}>
                             <Skeleton />
-                            <div className={styles.thinkingMessage}>The agent is thinking</div>
+                            <div className={styles.thinkingMessage}>MCP Interaction is happening...</div>
                         </div>
                     )}
                 </div>
@@ -379,45 +423,19 @@ const ChatInterface = () => {
                 {/* Input Area */}
                 <div className={styles.inputArea}>
                     <div className={styles.suggestions}>
-                        <Body className={styles.suggestionsLabel}>Suggestions:</Body>
+                        <Body className={styles.suggestionsLabel}>MCP Interaction:</Body>
                         <div className={styles.suggestionChips}>
-                            {suggestions.slice(suggestionIndex, suggestionIndex + 3).map((suggestion, idx) => (
+                            {suggestions.map((suggestion, idx) => (
                                 <button
                                     key={idx}
-                                    className={styles.suggestionChip}
+                                    className={`${styles.suggestionChip} ${isAsking && query === suggestion ? styles.processing : ''}`}
                                     onClick={() => handleSuggestionClick(suggestion)}
-                                    disabled={!mcpServerReady}
+                                    disabled={!mcpServerReady || isAsking}
                                 >
-                                    {suggestion}
+                                    {isAsking && query === suggestion ? "Processing..." : suggestion}
                                 </button>
                             ))}
                         </div>
-                    </div>
-                    <div className={styles.inputContainer}>
-                        <TextInput
-                            value={query}
-                            onChange={handleChange}
-                            placeholder={mcpServerReady ? "Ask me about BTC, stocks, or financial data..." : "MCP Server is loading..."}
-                            size="default"
-                            className={styles.chatInput}
-                            disabled={!mcpServerReady}
-                            label="Pick a suggestion from above or enter your question here:"
-                            aria-label="Chat input field"
-                            onKeyPress={(e) => {
-                                if (e.key === 'Enter' && !isAsking && query && mcpServerReady) {
-                                    handleAsk();
-                                }
-                            }}
-                        />
-                        <Button 
-                            onClick={handleAsk} 
-                            variant="primary" 
-                            size="default"
-                            className={styles.askButton}
-                            disabled={!query || isAsking || !mcpServerReady}
-                        >
-                            {isAsking ? "Processing..." : mcpServerReady ? "Ask" : "Loading..."}
-                        </Button>
                     </div>
                 </div>
             </div>
@@ -556,18 +574,59 @@ const ChatInterface = () => {
             {/* Info Modal */}
             <Modal open={showInfoModal} setOpen={setShowInfoModal} size="large">
                 <div className={styles.modalContent}>
-                    <H3>About Financial Data Analysis - MongoDB MCP Server Demo</H3>
+                    <H3>About Investment Portfolio Management - MCP Interaction</H3>
                     <Body>
-                        This demo showcases the MongoDB MCP (Model Context Protocol) Server with an AI-powered ReAct Agent, providing intelligent natural language processing for financial data analysis.
+                        This demo showcases the MongoDB MCP (Model Context Protocol) Server with an AI-powered ReAct Agent, providing intelligent processing of financial data queries through a curated set of examples.
                     </Body>
+
+                    <div style={{ marginTop: '2rem' }}>
+                        <Body>
+                            <strong>What is Model Context Protocol (MCP)?</strong>
+                        </Body>
+                        <Body style={{ marginTop: '0.5rem' }}>
+                            MCP is an open standard introduced by Anthropic that enables seamless communication between AI assistants and external data systems.
+                        </Body>
+                        <div style={{ marginTop: '1rem', textAlign: 'center' }}>
+                            <Image 
+                                src="/architecture/mcp-general-idea-diagram.png" 
+                                alt="MongoDB MCP Server Overview" 
+                                width={600} 
+                                height={400}
+                                style={{ maxWidth: '100%', height: 'auto' }}
+                            />
+                            <Body style={{ marginTop: '0.5rem', fontSize: '0.875rem', color: '#5e6c84' }}>
+                                MongoDB MCP Server enables integration with popular development tools like Windsurf, Cursor, VS Code, and Claude Desktop
+                            </Body>
+                        </div>
+                    </div>
+
+                    <div style={{ marginTop: '2rem' }}>
+                        <Body>
+                            <strong>Demo Architecture:</strong>
+                        </Body>
+                        <Body style={{ marginTop: '0.5rem' }}>
+                            This application demonstrates a complete implementation of the MongoDB MCP Server integrated with an AI ReAct Agent:
+                        </Body>
+                        <div style={{ marginTop: '1rem', textAlign: 'center' }}>
+                            <Image 
+                                src="/architecture/diagram.png" 
+                                alt="Demo Architecture" 
+                                width={700} 
+                                height={500}
+                                style={{ maxWidth: '100%', height: 'auto' }}
+                            />
+                            <Body style={{ marginTop: '0.5rem', fontSize: '0.875rem', color: '#5e6c84' }}>
+                                High-level architecture showing how the ReAct Agent uses MCP tools to interact with MongoDB Atlas
+                            </Body>
+                        </div>
+                    </div>
 
                     <div style={{ marginTop: '1rem' }}>
                         <Body>
                             <strong>ReAct Agent Features:</strong>
                             <ul>
-                                <li><strong>Natural Language Understanding</strong> - Ask questions in plain English</li>
+                                <li><strong>Natural Language Understanding</strong> - Processes queries in plain English</li>
                                 <li><strong>Intelligent Tool Selection</strong> - Automatically chooses the right MCP tools</li>
-                                <li><strong>Complex Query Handling</strong> - Can combine multiple tools for comprehensive answers</li>
                                 <li><strong>AWS Bedrock Integration</strong> - Powered by Claude models via SSO authentication</li>
                                 <li><strong>Real-time Tool Tracking</strong> - See exactly which tools are used for each query</li>
                             </ul>
@@ -605,22 +664,25 @@ const ChatInterface = () => {
                             <ul>
                                 <li><code>find</code> - Query documents from collections</li>
                                 <li><code>aggregate</code> - Run aggregation pipelines</li>
-                                <li><code>list-collections</code> - List available collections</li>
-                                <li><code>list-databases</code> - List available databases</li>
-                                <li><code>db-stats</code> - Get database statistics</li>
+                                <li><code>list</code> - List available collections</li>
                             </ul>
                         </Body>
                     </div>
 
                     <div style={{ marginTop: '1rem' }}>
                         <Body>
-                            <strong>Example Queries:</strong>
+                            <strong>Available Queries (Selection Only):</strong>
+                        </Body>
+                        <Body style={{ marginTop: '0.5rem' }}>
+                            Users can select from these 8 predefined questions:
                             <ul>
                                 <li>List collections in the database</li>
                                 <li>What is the latest available BTC close price?</li>
                                 <li>Show me the highest price of ETH close price over the last 14 days</li>
                                 <li>What is the latest available GLD close price?</li>
+                                <li>Show me the lowest price of SOL close price over the last 7 days</li>
                                 <li>What are the average trading volumes for SPY on the last 7 days?</li>
+                                <li>What is the latest available DOGE open price?</li>
                                 <li>Compare BTC and ETH prices over the last week</li>
                             </ul>
                         </Body>

@@ -128,25 +128,35 @@ export const mcpAggregateTool = new DynamicStructuredTool({
       // Add operation-specific stages
       switch (operation) {
         case 'max':
-          pipeline.push({
-            $group: {
-              _id: null,
-              maxValue: { $max: `$${field}` },
-              timestamp: { $last: '$timestamp' },
-              count: { $sum: 1 }
+          // Sort by field descending and take the first document
+          pipeline.push(
+            { $sort: { [field]: -1 } },
+            { $limit: 1 },
+            {
+              $project: {
+                _id: 0,
+                maxValue: `$${field}`,
+                timestamp: '$timestamp',
+                symbol: '$symbol'
+              }
             }
-          });
+          );
           break;
           
         case 'min':
-          pipeline.push({
-            $group: {
-              _id: null,
-              minValue: { $min: `$${field}` },
-              timestamp: { $last: '$timestamp' },
-              count: { $sum: 1 }
+          // Sort by field ascending and take the first document
+          pipeline.push(
+            { $sort: { [field]: 1 } },
+            { $limit: 1 },
+            {
+              $project: {
+                _id: 0,
+                minValue: `$${field}`,
+                timestamp: '$timestamp',
+                symbol: '$symbol'
+              }
             }
-          });
+          );
           break;
           
         case 'stats':
