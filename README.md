@@ -1,6 +1,6 @@
 # Investment Portfolio Management - MCP Interaction
 
-A real-time chat application that demonstrates the power of the **MongoDB MCP Server** combined with an **AI-powered ReAct Agent** to process predefined financial data queries stored in MongoDB Atlas through an intuitive selection interface.
+A demo application that demonstrates the power of the **MongoDB MCP Server** combined with an **AI-powered ReAct Agent** to process predefined financial data queries stored in MongoDB Atlas through an intuitive selection interface.
 
 ## 🔌 **What is Model Context Protocol (MCP)?**
 
