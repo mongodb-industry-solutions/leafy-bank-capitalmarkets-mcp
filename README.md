@@ -1,6 +1,6 @@
-# 📊 Financial Data Analysis - MongoDB MCP Server Demo
+# Investment Portfolio Management - MCP Interaction
 
-A real-time chat application that demonstrates the power of the **MongoDB MCP Server** combined with an **AI-powered ReAct Agent** to enable intelligent natural language queries to financial data stored in MongoDB Atlas.
+A real-time chat application that demonstrates the power of the **MongoDB MCP Server** combined with an **AI-powered ReAct Agent** to process predefined financial data queries stored in MongoDB Atlas through an intuitive selection interface.
 
 ## 🔌 **What is Model Context Protocol (MCP)?**
 
@@ -61,7 +61,7 @@ This is a **demonstration application** with the following constraints:
 
 ### **Basic Calculations Only**
 - Simple aggregations (averages, sums, counts)
-- Price trends and comparisons
+- Price comparisons
 - **NOT supported**: Complex calculations like volatility, moving averages, RSI, technical indicators
 
 ### **Time Range Limits**
@@ -72,7 +72,7 @@ This is a **demonstration application** with the following constraints:
 ## 🚀 **Key Features**
 
 ### ✅ **AI-Powered ReAct Agent**
-- **Natural Language Understanding** - Ask questions in plain English
+- **Natural Language Understanding** - Processes predefined queries in plain English
 - **Intelligent Tool Selection** - Automatically chooses the right MCP tools
 - **AWS Bedrock Integration** - Powered by Claude models via SSO authentication
 - **Real-time Tool Tracking** - See exactly which tools are used for each query
@@ -124,43 +124,47 @@ This is a **demonstration application** with the following constraints:
 - ❌ No `MongoClient` connections
 - ❌ No direct database queries
 
-## 📊 **Supported Queries**
+## 📊 **Available Queries**
 
-The ReAct Agent can handle these specific query patterns:
+Users can select from the following 8 predefined questions:
 
-### **1. List Collections**
-- `"List collections in the database"`
-- Shows all available collections
-- Explains that only `yfinanceMarketData` and `binanceCryptoData` support queries
+### **Database Exploration**
+1. `"List collections in the database"`
+   - Shows all available collections in the financial database
+   - Identifies which collections support queries
 
-### **2. Latest Prices**
-- `"What is the latest available BTC close price?"`
-- `"What is the latest available GLD close price?"`
-- Returns the most recent closing price for any supported asset
+### **Latest Price Queries**
+2. `"What is the latest available BTC close price?"`
+   - Returns the most recent Bitcoin closing price
+3. `"What is the latest available GLD close price?"`
+   - Returns the most recent Gold ETF closing price
+4. `"What is the latest available DOGE open price?"`
+   - Returns the most recent Dogecoin opening price
 
-### **3. Price Trends & Analysis**
-- `"Show me the highest price of ETH close price over the last 14 days"`
-- `"Show me price trends for GLD"`
-- Find highest/lowest prices or display daily price averages over the specified period
+### **Price Analysis**
+5. `"Show me the highest price of ETH close price over the last 14 days"`
+   - Finds the maximum Ethereum closing price in the past 2 weeks
+6. `"Show me the lowest price of SOL close price over the last 7 days"`
+   - Finds the minimum Solana closing price in the past week
 
-### **4. Volume Analysis**
-- `"What are the average trading volumes for SPY on the last 7 days?"`
-- Calculates average trading volumes for the period
+### **Volume Analysis**
+7. `"What are the average trading volumes for SPY on the last 7 days?"`
+   - Calculates average S&P 500 ETF trading volumes for the past week
 
-### **5. Price Comparisons**
-- `"Compare BTC and ETH prices over the last week"`
-- Shows price ranges and comparisons between two assets
+### **Price Comparisons**
+8. `"Compare BTC and ETH prices over the last week"`
+   - Shows price ranges and comparisons between Bitcoin and Ethereum
 
 ### **Important Notes:**
-- All queries must use the **exact asset symbols** listed in limitations
-- Time ranges default to 7 days if not specified
-- Maximum time range is 60 days
+- These are the **only available questions** - users select from this predefined list
+- All queries use the **exact asset symbols** from the supported assets list
+- Time ranges are fixed as specified in each question
 - All prices are rounded to 2 decimal places
 
 ## 🎨 **User Interface**
 
 ### **Chat Panel (Left)**
-- **Natural language input** with suggestion chips
+- **Question selection interface** with 8 predefined queries
 - **Real-time responses** with tool usage indicators
 - **Parsed data display** when available
 - **Raw MCP response** for transparency
@@ -577,28 +581,28 @@ List all available MCP tools.
 ## 🎯 **Demo Scenarios**
 
 ### **Scenario 1: Basic Price Query**
-1. Ask: `"What is the latest BTC price?"`
+1. Select: `"What is the latest available BTC close price?"`
 2. Watch ReAct Agent analyze the question
 3. See MCP tool call execute in real-time
 4. View parsed answer + raw MCP response
 5. Observe console logs showing the communication
 
-### **Scenario 2: Complex Aggregation**
-1. Ask: `"Calculate volatility for ETH over the last 30 days"`
+### **Scenario 2: Price Analysis**
+1. Select: `"Show me the highest price of ETH close price over the last 14 days"`
 2. Watch ReAct Agent choose the `aggregate` tool
-3. See complex aggregation pipeline in action
-4. View formatted statistics + raw data
+3. See aggregation pipeline find the maximum value
+4. View the highest price with its date
 5. Monitor performance in console logs
 
 ### **Scenario 3: Multi-Tool Analysis**
-1. Ask: `"Compare BTC and ETH performance over the last week"`
+1. Select: `"Compare BTC and ETH prices over the last week"`
 2. Watch ReAct Agent make multiple tool calls
 3. See data from both cryptocurrencies
 4. View comprehensive comparison analysis
 5. Understand how ReAct Agent combines tools
 
 ### **Scenario 4: Database Exploration**
-1. Ask: `"What collections are available?"`
+1. Select: `"List collections in the database"`
 2. See ReAct Agent choose `list-collections` tool
 3. View available database collections
 4. Understand MCP tool capabilities

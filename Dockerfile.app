@@ -8,7 +8,7 @@ RUN npm install -g mongodb-mcp-server@latest
 
 # Copy package files and install dependencies
 COPY src/package*.json ./
-RUN npm install --legacy-peer-deps
+RUN npm install --legacy-peer-deps && npm install sharp
 
 # Copy source code
 COPY src/ ./
