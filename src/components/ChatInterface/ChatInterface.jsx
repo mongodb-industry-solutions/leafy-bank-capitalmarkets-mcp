@@ -279,7 +279,7 @@ const ChatInterface = () => {
                                             </Body>
                                         </div>
                                         <Body>
-                                            Hi there! 👋 I am connected to MongoDB through the MCP Server in <strong>read-only mode</strong>. I use an AI-powered ReAct Agent that processes predefined queries and automatically chooses the right MCP tools.
+                                            Hi there! 👋 I am connected to MongoDB through the MCP Server in <strong>read-only mode</strong>. I use an AI-powered ReAct Agent that processes your queries and automatically chooses the right MCP tools.
                                         </Body>
                                         <div className={styles.demoRestrictions}>
                                             <Body className={styles.messageSubtitle}>
@@ -326,7 +326,7 @@ const ChatInterface = () => {
                                         </div>
                                         <div className={styles.messageSection}>
                                             <Body className={styles.messageParagraph}>
-                                                <strong>💡 Get started:</strong> Select a question below to explore financial data insights!
+                                                <strong>💡 Get started:</strong> Select a pre-defined question below or type your own query to explore financial data insights!
                                             </Body>
                                             <Body>
                                                 <strong>⚠️ Demo Limitations:</strong> This demo showcases basic MongoDB MCP Server capabilities. Complex calculations like volatility, moving averages, RSI, and other technical indicators are not supported. For advanced use cases, explore a full implementation.
@@ -607,7 +607,7 @@ const ChatInterface = () => {
                 <div className={styles.modalContent}>
                     <H3>About Investment Portfolio Management - MCP Interaction</H3>
                     <Body>
-                        This demo showcases the MongoDB MCP (Model Context Protocol) Server with an AI-powered ReAct Agent, providing intelligent processing of financial data queries through a curated set of examples.
+                        This demo showcases the MongoDB MCP (Model Context Protocol) Server with an AI-powered ReAct Agent, providing intelligent processing of financial data queries through pre-defined examples or your own custom questions.
                     </Body>
 
                     <div style={{ marginTop: '2rem' }}>
@@ -702,10 +702,10 @@ const ChatInterface = () => {
 
                     <div style={{ marginTop: '1rem' }}>
                         <Body>
-                            <strong>Available Queries (Selection Only):</strong>
+                            <strong>Query Options:</strong>
                         </Body>
                         <Body style={{ marginTop: '0.5rem' }}>
-                            Users can select from these 8 predefined questions:
+                            Users can select from pre-defined questions or type their own queries:
                             <ul>
                                 <li>List collections in the database</li>
                                 <li>What is the latest available BTC close price?</li>
@@ -716,6 +716,9 @@ const ChatInterface = () => {
                                 <li>What is the latest available DOGE open price?</li>
                                 <li>Compare BTC and ETH prices over the last week</li>
                             </ul>
+                        </Body>
+                        <Body style={{ marginTop: '0.5rem' }}>
+                            <strong>Custom Queries:</strong> You can also type your own questions about the supported financial data. The ReAct Agent will process them using the same MCP tools.
                         </Body>
                     </div>
 
