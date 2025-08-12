@@ -423,7 +423,7 @@ const ChatInterface = () => {
                 {/* Input Area */}
                 <div className={styles.inputArea}>
                     <div className={styles.suggestions}>
-                        <Body className={styles.suggestionsLabel}>Select a pre-defined question (recommended):</Body>
+                        <Body className={styles.suggestionsLabel}>MCP Interaction:</Body>
                         <div className={styles.suggestionChips}>
                             {suggestions.map((suggestion, idx) => (
                                 <button
@@ -436,37 +436,6 @@ const ChatInterface = () => {
                                 </button>
                             ))}
                         </div>
-                    </div>
-                    <div className={styles.inputContainer}>
-                        <input
-                            type="text"
-                            className={styles.chatInput}
-                            placeholder={mcpServerReady ? "Or type your own question..." : "MCP Server is loading..."}
-                            value={query}
-                            onChange={(e) => setQuery(e.target.value)}
-                            onKeyPress={(e) => {
-                                if (e.key === 'Enter' && !isAsking && mcpServerReady && query.trim()) {
-                                    // Add user message immediately
-                                    setMessages(prevMessages => [...prevMessages, { text: query, isUser: true }]);
-                                    handleAsk(query, true);
-                                }
-                            }}
-                            disabled={!mcpServerReady || isAsking}
-                        />
-                        <Button
-                            variant="primary"
-                            onClick={() => {
-                                if (!isAsking && mcpServerReady && query.trim()) {
-                                    // Add user message immediately
-                                    setMessages(prevMessages => [...prevMessages, { text: query, isUser: true }]);
-                                    handleAsk(query, true);
-                                }
-                            }}
-                            disabled={!mcpServerReady || isAsking || !query.trim()}
-                            className={styles.askButton}
-                        >
-                            {isAsking ? "Processing..." : "Ask"}
-                        </Button>
                     </div>
                 </div>
             </div>
