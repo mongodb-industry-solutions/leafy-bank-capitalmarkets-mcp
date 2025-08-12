@@ -1,6 +1,6 @@
 # Investment Portfolio Management - MCP Interaction
 
-A demo application that demonstrates the power of the **MongoDB MCP Server** combined with an **AI-powered ReAct Agent** to process predefined financial data queries stored in MongoDB Atlas through an intuitive selection interface.
+A demo application that demonstrates the power of the **MongoDB MCP Server** combined with an **AI-powered ReAct Agent** to process financial data queries stored in MongoDB Atlas through an intuitive interface that supports both pre-defined questions and custom text input.
 
 ## 🔌 **What is Model Context Protocol (MCP)?**
 
@@ -72,7 +72,7 @@ This is a **demonstration application** with the following constraints:
 ## 🚀 **Key Features**
 
 ### ✅ **AI-Powered ReAct Agent**
-- **Natural Language Understanding** - Processes predefined queries in plain English
+- **Natural Language Understanding** - Processes both pre-defined and custom queries in plain English
 - **Intelligent Tool Selection** - Automatically chooses the right MCP tools
 - **AWS Bedrock Integration** - Powered by Claude models via SSO authentication
 - **Real-time Tool Tracking** - See exactly which tools are used for each query
@@ -124,9 +124,9 @@ This is a **demonstration application** with the following constraints:
 - ❌ No `MongoClient` connections
 - ❌ No direct database queries
 
-## 📊 **Available Queries**
+## 📊 **Query Options**
 
-Users can select from the following 8 predefined questions:
+Users can select from the following pre-defined questions or type their own custom queries:
 
 ### **Database Exploration**
 1. `"List collections in the database"`
@@ -155,16 +155,21 @@ Users can select from the following 8 predefined questions:
 8. `"Compare BTC and ETH prices over the last week"`
    - Shows price ranges and comparisons between Bitcoin and Ethereum
 
+### **Custom Queries:**
+In addition to the pre-defined questions above, users can type their own queries about the supported financial data. The ReAct Agent will intelligently process custom questions using the same MCP tools.
+
 ### **Important Notes:**
-- These are the **only available questions** - users select from this predefined list
-- All queries use the **exact asset symbols** from the supported assets list
-- Time ranges are fixed as specified in each question
+- Pre-defined questions are recommended for optimal results
+- Custom queries should focus on the **supported assets** listed in the demo
+- All queries must work within the **read-only limitations** of the demo
+- Complex calculations (volatility, moving averages, RSI) are not supported
 - All prices are rounded to 2 decimal places
 
 ## 🎨 **User Interface**
 
 ### **Chat Panel (Left)**
-- **Question selection interface** with 8 predefined queries
+- **Pre-defined question buttons** for quick access to common queries
+- **Text input field** for typing custom questions
 - **Real-time responses** with tool usage indicators
 - **Parsed data display** when available
 - **Raw MCP response** for transparency
@@ -606,6 +611,13 @@ List all available MCP tools.
 2. See ReAct Agent choose `list-collections` tool
 3. View available database collections
 4. Understand MCP tool capabilities
+
+### **Scenario 5: Custom Query**
+1. Type your own question: `"What was the average closing price of BTC last week?"`
+2. Watch ReAct Agent understand your custom query
+3. See it select appropriate MCP tools (likely `aggregate`)
+4. View the calculated average price
+5. Experience the flexibility of natural language processing
 
 ## 🔍 **Educational Value**
 
