@@ -282,8 +282,20 @@ export class MCPServerManager {
               // Handle different types of responses
               if (response.method === 'notifications/message') {
                 // This is a notification, not the result - continue
-                console.log('📢 MCP notification:', response.params?.data);
-                this.addConsoleLog('📢 MCP notification:', response.params?.data);
+                const notificationData = response.params?.data;
+                
+                // Skip logging notifications containing error-related text
+                const errorTerms = ["error", "Error", "ERROR"];
+                const containsErrorTerm = errorTerms.some(term => 
+                  typeof notificationData === 'string' ? 
+                    notificationData.includes(term) : 
+                    JSON.stringify(notificationData).includes(term)
+                );
+                
+                if (!containsErrorTerm) {
+                  console.log('📢 MCP notification:', notificationData);
+                  this.addConsoleLog('📢 MCP notification:', notificationData);
+                }
                 continue;
               }
               
