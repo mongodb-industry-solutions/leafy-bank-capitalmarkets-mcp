@@ -1,0 +1,122 @@
+---
+kind: pipeline
+type: kubernetes
+name: staging
+
+trigger:
+  branch:
+    - staging
+  paths:
+    exclude:
+      - README.md
+      - THIRD-PARTY-NOTICES.md
+      - .gitignore
+      - .env.example
+      - LICENSE
+      - scripts/**
+      - data/**
+
+steps:
+  - name: publish
+    image: plugins/kaniko-ecr
+    settings:
+      create_repository: true
+      registry: 795250896452.dkr.ecr.us-east-1.amazonaws.com
+      repo: industrysolutions/capitalmarkets-mcp
+      tags:
+        - git-${DRONE_COMMIT_SHA:0:7}
+        - latest
+      access_key:
+        from_secret: ecr_access_key
+      secret_key:
+        from_secret: ecr_secret_key
+    when:
+      event:
+        - push
+
+  - name: deploy-staging
+    image: public.ecr.aws/kanopy/drone-helm:v3
+    settings:
+      chart: mongodb/web-app
+      chart_version: 4.25.0
+      add_repos: [mongodb=https://10gen.github.io/helm-charts]
+      namespace: industrysolutions
+      release: capitalmarkets-mcp
+      values:
+        - "image.tag=git-${DRONE_COMMIT_SHA:0:7}"
+        - "image.repository=795250896452.dkr.ecr.us-east-1.amazonaws.com/industrysolutions/capitalmarkets-mcp"
+        - "ingress.enabled=true"
+        - "ingress.hosts[0]=capitalmarkets-mcp.industrysolutions.staging.corp.mongodb.com"
+        - "mesh.enabled=true"
+        - "resources.limits.cpu=500m"
+        - "resources.limits.memory=1024Mi"
+        - "resources.requests.cpu=250m"
+        - "resources.requests.memory=512Mi"
+      api_server: https://api.staging.corp.mongodb.com
+      kubernetes_token:
+        from_secret: staging_kubernetes_token
+      values_files: ["environments/staging.yaml"]
+    when:
+      event:
+        - push
+---
+kind: pipeline
+type: kubernetes
+name: production
+
+trigger:
+  branch:
+    - main
+  paths:
+    exclude:
+      - README.md
+      - THIRD-PARTY-NOTICES.md
+      - .gitignore
+      - .env.example
+      - LICENSE
+      - scripts/**
+      - data/**
+
+steps:
+  - name: publish
+    image: plugins/kaniko-ecr
+    settings:
+      create_repository: true
+      registry: 795250896452.dkr.ecr.us-east-1.amazonaws.com
+      repo: industrysolutions/capitalmarkets-mcp
+      tags:
+        - git-${DRONE_COMMIT_SHA:0:7}
+        - latest
+      access_key:
+        from_secret: ecr_access_key
+      secret_key:
+        from_secret: ecr_secret_key
+    when:
+      event:
+        - push
+
+  - name: deploy-prod
+    image: public.ecr.aws/kanopy/drone-helm:v3
+    settings:
+      chart: mongodb/web-app
+      chart_version: 4.25.0
+      add_repos: [mongodb=https://10gen.github.io/helm-charts]
+      namespace: industrysolutions
+      release: capitalmarkets-mcp
+      values:
+        - "image.tag=git-${DRONE_COMMIT_SHA:0:7}"
+        - "image.repository=795250896452.dkr.ecr.us-east-1.amazonaws.com/industrysolutions/capitalmarkets-mcp"
+        - "ingress.enabled=true"
+        - "ingress.hosts[0]=capitalmarkets-mcp.industrysolutions.prod.corp.mongodb.com"
+        - "mesh.enabled=true"
+        - "resources.limits.cpu=500m"
+        - "resources.limits.memory=1024Mi"
+        - "resources.requests.cpu=250m"
+        - "resources.requests.memory=512Mi"
+      api_server: https://api.prod.corp.mongodb.com
+      kubernetes_token:
+        from_secret: prod_kubernetes_token
+      values_files: ["environments/prod.yaml"]
+    when:
+      event:
+        - push

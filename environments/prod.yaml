@@ -1,0 +1,16 @@
+env:
+  NODE_ENV: prod
+  
+envSecrets:
+  NEXT_PUBLIC_MCP_CONNECTION_STRING: capitalmarkets-mcp
+  NEXT_PUBLIC_MCP_API_CLIENT_ID: capitalmarkets-mcp
+  NEXT_PUBLIC_MCP_API_CLIENT_SECRET: capitalmarkets-mcp
+  NEXT_PUBLIC_AWS_REGION: capitalmarkets-mcp
+  NEXT_PUBLIC_CHAT_COMPLETIONS_MODEL_ID: capitalmarkets-mcp
+  NODE_ENV: capitalmarkets-mcp
+
+serviceAccount:
+  enabled: true
+  irsa:
+    accountId: "275662791714"
+    roleName: "kanopy-prod-cicd-irsa"

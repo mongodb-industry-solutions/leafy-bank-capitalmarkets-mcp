@@ -1,0 +1,3000 @@
+[{
+  "timestamp": {
+    "$date": "2025-07-31T23:59:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.20962,
+  "high": 0.20986,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bce7"
+  },
+  "low": 0.20961,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 338767,
+  "close": 0.20974
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:59:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0c7"
+  },
+  "high": 115776.97,
+  "open": 115730.64,
+  "close": 115764.08,
+  "volume": 10.92383,
+  "low": 115730.64,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:59:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.22,
+  "open": 172.14,
+  "high": 172.28,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b747"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 172.14,
+  "volume": 1075.961
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:59:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 59299.9,
+  "open": 0.7387,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c287"
+  },
+  "high": 0.7393,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7386,
+  "close": 0.7392
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:58:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.14,
+  "open": 172.38,
+  "high": 172.48,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b746"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 172.11,
+  "volume": 785.754
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:58:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 47802.6,
+  "open": 0.7396,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c286"
+  },
+  "high": 0.7399,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7385,
+  "close": 0.7387
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:58:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.21001,
+  "high": 0.21011,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bce6"
+  },
+  "low": 0.20959,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 506766,
+  "close": 0.20963
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:58:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0c6"
+  },
+  "high": 115800,
+  "open": 115768.87,
+  "close": 115730.65,
+  "volume": 14.57726,
+  "low": 115730.64,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:57:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 72923.2,
+  "open": 0.74,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c285"
+  },
+  "high": 0.7403,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7394,
+  "close": 0.7395
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:57:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.38,
+  "open": 172.49,
+  "high": 172.52,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b745"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 172.32,
+  "volume": 775.052
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:57:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.20982,
+  "high": 0.21009,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bce5"
+  },
+  "low": 0.20982,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 870873,
+  "close": 0.21001
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:57:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0c5"
+  },
+  "high": 115773.83,
+  "open": 115745.42,
+  "close": 115768.86,
+  "volume": 14.43928,
+  "low": 115726.84,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:56:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.49,
+  "open": 172.51,
+  "high": 172.59,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b744"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 172.42,
+  "volume": 814.722
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:56:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.20989,
+  "high": 0.21009,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bce4"
+  },
+  "low": 0.20975,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 931464,
+  "close": 0.20981
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:56:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0c4"
+  },
+  "high": 115826.62,
+  "open": 115724,
+  "close": 115745.43,
+  "volume": 16.15904,
+  "low": 115654.15,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:56:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 228771.9,
+  "open": 0.7401,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c284"
+  },
+  "high": 0.7411,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7398,
+  "close": 0.74
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:55:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.20963,
+  "high": 0.20988,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bce3"
+  },
+  "low": 0.20952,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 250903,
+  "close": 0.20988
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:55:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0c3"
+  },
+  "high": 115724,
+  "open": 115573.46,
+  "close": 115724,
+  "volume": 15.3347,
+  "low": 115573.45,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:55:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.5,
+  "open": 172.19,
+  "high": 172.5,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b743"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 172.18,
+  "volume": 928.08
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:55:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 19173.6,
+  "open": 0.7394,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c283"
+  },
+  "high": 0.7401,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7393,
+  "close": 0.7401
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:54:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0c2"
+  },
+  "high": 115682.86,
+  "open": 115682.86,
+  "close": 115573.46,
+  "volume": 16.86616,
+  "low": 115573.46,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:54:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 29076.4,
+  "open": 0.7401,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c282"
+  },
+  "high": 0.7401,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7394,
+  "close": 0.7394
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:54:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.19,
+  "open": 172.26,
+  "high": 172.3,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b742"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 172.15,
+  "volume": 816.346
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:54:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.20983,
+  "high": 0.20983,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bce2"
+  },
+  "low": 0.20962,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 375103,
+  "close": 0.20962
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:53:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0c1"
+  },
+  "high": 115696.09,
+  "open": 115650.01,
+  "close": 115682.85,
+  "volume": 29.9439,
+  "low": 115602.6,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:53:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.20951,
+  "high": 0.20984,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bce1"
+  },
+  "low": 0.20951,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 515522,
+  "close": 0.20983
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:53:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 67389.6,
+  "open": 0.7387,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c281"
+  },
+  "high": 0.7402,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7387,
+  "close": 0.7402
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:53:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.27,
+  "open": 171.96,
+  "high": 172.29,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b741"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 171.92,
+  "volume": 2680.164
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:52:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0c0"
+  },
+  "high": 115689.27,
+  "open": 115683.24,
+  "close": 115650,
+  "volume": 11.62468,
+  "low": 115620,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:52:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 171.95,
+  "open": 172.02,
+  "high": 172.07,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b740"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 171.77,
+  "volume": 1991.775
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:52:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.20969,
+  "high": 0.20986,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bce0"
+  },
+  "low": 0.20923,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 1294898,
+  "close": 0.2095
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:52:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 28957.6,
+  "open": 0.7384,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c280"
+  },
+  "high": 0.739,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7374,
+  "close": 0.7386
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:51:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.21005,
+  "high": 0.21024,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcdf"
+  },
+  "low": 0.20968,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 551915,
+  "close": 0.2097
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:51:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.02,
+  "open": 172.26,
+  "high": 172.36,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b73f"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 172.01,
+  "volume": 790.241
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:51:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0bf"
+  },
+  "high": 115819.12,
+  "open": 115803.07,
+  "close": 115683.24,
+  "volume": 12.05214,
+  "low": 115683.23,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:51:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 126726.8,
+  "open": 0.7398,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c27f"
+  },
+  "high": 0.7403,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7383,
+  "close": 0.7383
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:50:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.21029,
+  "high": 0.21036,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcde"
+  },
+  "low": 0.20996,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 293521,
+  "close": 0.21004
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:50:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0be"
+  },
+  "high": 115860,
+  "open": 115812.88,
+  "close": 115803.08,
+  "volume": 12.34739,
+  "low": 115781.64,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:50:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.25,
+  "open": 172.46,
+  "high": 172.48,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b73e"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 172.18,
+  "volume": 1030.727
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:50:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 34554.4,
+  "open": 0.7406,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c27e"
+  },
+  "high": 0.741,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7394,
+  "close": 0.7397
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:49:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.46,
+  "open": 172.43,
+  "high": 172.47,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b73d"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 172.33,
+  "volume": 1696.521
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:49:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 22756.1,
+  "open": 0.7402,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c27d"
+  },
+  "high": 0.7405,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7395,
+  "close": 0.7405
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:49:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.21014,
+  "high": 0.2103,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcdd"
+  },
+  "low": 0.20994,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 563908,
+  "close": 0.2103
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:49:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0bd"
+  },
+  "high": 115812.89,
+  "open": 115811.82,
+  "close": 115812.89,
+  "volume": 5.86151,
+  "low": 115760,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:48:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0bc"
+  },
+  "high": 115811.83,
+  "open": 115735.17,
+  "close": 115811.83,
+  "volume": 26.76286,
+  "low": 115730.94,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:48:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.43,
+  "open": 172.16,
+  "high": 172.44,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b73c"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 172.11,
+  "volume": 2806.134
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:48:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.20982,
+  "high": 0.21022,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcdc"
+  },
+  "low": 0.20979,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 4592721,
+  "close": 0.21014
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:48:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 64414.9,
+  "open": 0.739,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c27c"
+  },
+  "high": 0.7405,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7388,
+  "close": 0.7402
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:47:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.20952,
+  "high": 0.2099,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcdb"
+  },
+  "low": 0.20947,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 477821,
+  "close": 0.20981
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:47:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0bb"
+  },
+  "high": 115757.91,
+  "open": 115655.61,
+  "close": 115735.17,
+  "volume": 9.50769,
+  "low": 115655.6,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:47:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 100336.2,
+  "open": 0.738,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c27b"
+  },
+  "high": 0.7392,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.738,
+  "close": 0.7389
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:47:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.16,
+  "open": 171.92,
+  "high": 172.16,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b73b"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 171.92,
+  "volume": 751.153
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:46:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 109511.2,
+  "open": 0.7405,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c27a"
+  },
+  "high": 0.7405,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7376,
+  "close": 0.7379
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:46:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 171.93,
+  "open": 172.31,
+  "high": 172.31,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b73a"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 171.81,
+  "volume": 5538.083
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:46:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.2102,
+  "high": 0.2102,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcda"
+  },
+  "low": 0.20943,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 1053164,
+  "close": 0.20952
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:46:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0ba"
+  },
+  "high": 115850.28,
+  "open": 115850.28,
+  "close": 115655.61,
+  "volume": 20.08524,
+  "low": 115655.6,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:45:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.20978,
+  "high": 0.21036,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcd9"
+  },
+  "low": 0.20978,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 1108027,
+  "close": 0.21021
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:45:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0b9"
+  },
+  "high": 115856,
+  "open": 115743.58,
+  "close": 115850.28,
+  "volume": 12.96041,
+  "low": 115743.58,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:45:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 47042.7,
+  "open": 0.7397,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c279"
+  },
+  "high": 0.7409,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7397,
+  "close": 0.7405
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:45:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.31,
+  "open": 172.11,
+  "high": 172.37,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b739"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 172.11,
+  "volume": 1710.643
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:44:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 135081.4,
+  "open": 0.7397,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c278"
+  },
+  "high": 0.7404,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7392,
+  "close": 0.7396
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:44:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.12,
+  "open": 172.08,
+  "high": 172.17,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b738"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 172.04,
+  "volume": 3593.308
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:44:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.20977,
+  "high": 0.20992,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcd8"
+  },
+  "low": 0.20969,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 409733,
+  "close": 0.20978
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:44:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0b8"
+  },
+  "high": 115810.39,
+  "open": 115780,
+  "close": 115743.58,
+  "volume": 10.83887,
+  "low": 115738.12,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:43:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.09,
+  "open": 171.78,
+  "high": 172.09,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b737"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 171.78,
+  "volume": 934.676
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:43:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0b7"
+  },
+  "high": 115780,
+  "open": 115675.6,
+  "close": 115780,
+  "volume": 22.73427,
+  "low": 115644.16,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:43:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 82114,
+  "open": 0.7372,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c277"
+  },
+  "high": 0.7398,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7372,
+  "close": 0.7398
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:43:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.20905,
+  "high": 0.20978,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcd7"
+  },
+  "low": 0.20905,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 954378,
+  "close": 0.20977
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:42:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 142695.9,
+  "open": 0.7364,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c276"
+  },
+  "high": 0.7381,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7364,
+  "close": 0.7372
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:42:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0b6"
+  },
+  "high": 115688.64,
+  "open": 115562.24,
+  "close": 115675.59,
+  "volume": 25.7823,
+  "low": 115521.88,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:42:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.20884,
+  "high": 0.20932,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcd6"
+  },
+  "low": 0.20879,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 1684476,
+  "close": 0.20905
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:42:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 171.77,
+  "open": 171.65,
+  "high": 171.96,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b736"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 171.65,
+  "volume": 4029.006
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:41:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 575601.4,
+  "open": 0.738,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c275"
+  },
+  "high": 0.7382,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7356,
+  "close": 0.7363
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:41:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.20913,
+  "high": 0.2092,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcd5"
+  },
+  "low": 0.20814,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 10771277,
+  "close": 0.20884
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:41:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0b5"
+  },
+  "high": 115611.34,
+  "open": 115611.33,
+  "close": 115562.24,
+  "volume": 93.26659,
+  "low": 115500,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:41:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 171.64,
+  "open": 171.76,
+  "high": 171.79,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b735"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 171.44,
+  "volume": 6262.161
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:40:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 171.77,
+  "open": 171.9,
+  "high": 171.97,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b734"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 171.64,
+  "volume": 3489.052
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:40:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.20945,
+  "high": 0.20957,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcd4"
+  },
+  "low": 0.20888,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 3218893,
+  "close": 0.20914
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:40:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 286262.8,
+  "open": 0.7388,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c274"
+  },
+  "high": 0.7394,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7377,
+  "close": 0.738
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:40:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0b4"
+  },
+  "high": 115819.2,
+  "open": 115819.2,
+  "close": 115611.34,
+  "volume": 147.71137,
+  "low": 115600,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:39:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 438786.8,
+  "open": 0.7395,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c273"
+  },
+  "high": 0.7401,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7388,
+  "close": 0.7388
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:39:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.20956,
+  "high": 0.20991,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcd3"
+  },
+  "low": 0.20945,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 618549,
+  "close": 0.20945
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:39:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 171.9,
+  "open": 172.1,
+  "high": 172.29,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b733"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 171.89,
+  "volume": 660.717
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:39:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0b3"
+  },
+  "high": 115883.43,
+  "open": 115838,
+  "close": 115819.2,
+  "volume": 5.28164,
+  "low": 115819.19,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:38:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.1,
+  "open": 172.13,
+  "high": 172.18,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b732"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 172,
+  "volume": 2400.891
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:38:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 109382.4,
+  "open": 0.7391,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c272"
+  },
+  "high": 0.7398,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7388,
+  "close": 0.7394
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:38:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.20959,
+  "high": 0.20974,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcd2"
+  },
+  "low": 0.20935,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 2400763,
+  "close": 0.20957
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:38:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0b2"
+  },
+  "high": 115860,
+  "open": 115828,
+  "close": 115838,
+  "volume": 19.71248,
+  "low": 115809,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:37:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.21007,
+  "high": 0.21014,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcd1"
+  },
+  "low": 0.20959,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 1864914,
+  "close": 0.2096
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:37:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0b1"
+  },
+  "high": 115910,
+  "open": 115902.94,
+  "close": 115828.01,
+  "volume": 5.01186,
+  "low": 115828,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:37:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 46362.2,
+  "open": 0.7405,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c271"
+  },
+  "high": 0.7407,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.739,
+  "close": 0.7391
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:37:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.12,
+  "open": 172.45,
+  "high": 172.48,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b731"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 172.12,
+  "volume": 3172.966
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:36:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.44,
+  "open": 172.42,
+  "high": 172.52,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b730"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 172.31,
+  "volume": 1645.507
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:36:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 213259.4,
+  "open": 0.7406,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c270"
+  },
+  "high": 0.7409,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7398,
+  "close": 0.7404
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:36:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.2101,
+  "high": 0.2102,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcd0"
+  },
+  "low": 0.20989,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 465411,
+  "close": 0.21006
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:36:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0b0"
+  },
+  "high": 115939.4,
+  "open": 115877.76,
+  "close": 115902.94,
+  "volume": 12.07644,
+  "low": 115875.01,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:35:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.20994,
+  "high": 0.21033,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bccf"
+  },
+  "low": 0.20994,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 893163,
+  "close": 0.21011
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:35:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 110078.5,
+  "open": 0.7402,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c26f"
+  },
+  "high": 0.7413,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7402,
+  "close": 0.7406
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:35:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0af"
+  },
+  "high": 115950,
+  "open": 115945.91,
+  "close": 115877.77,
+  "volume": 8.93095,
+  "low": 115877.76,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:35:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.43,
+  "open": 172.35,
+  "high": 172.56,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b72f"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 172.35,
+  "volume": 1698.759
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:34:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.20976,
+  "high": 0.2103,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcce"
+  },
+  "low": 0.20967,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 1026957,
+  "close": 0.20994
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:34:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 83261,
+  "open": 0.7393,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c26e"
+  },
+  "high": 0.7413,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7392,
+  "close": 0.7402
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:34:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.34,
+  "open": 172.25,
+  "high": 172.5,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b72e"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 172.14,
+  "volume": 1584.917
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:34:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0ae"
+  },
+  "high": 116036.64,
+  "open": 115980.03,
+  "close": 115945.91,
+  "volume": 19.85319,
+  "low": 115925.75,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:33:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0ad"
+  },
+  "high": 116031.84,
+  "open": 115893.93,
+  "close": 115980.03,
+  "volume": 91.85641,
+  "low": 115808.8,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:33:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.20966,
+  "high": 0.20999,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bccd"
+  },
+  "low": 0.20916,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 5353360,
+  "close": 0.20975
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:33:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 564465,
+  "open": 0.7386,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c26d"
+  },
+  "high": 0.7401,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7371,
+  "close": 0.7392
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:33:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.25,
+  "open": 171.98,
+  "high": 172.34,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b72d"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 171.74,
+  "volume": 9447.383
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:32:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 171.98,
+  "open": 172.27,
+  "high": 172.29,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b72c"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 171.87,
+  "volume": 14560.043
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:32:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 522301.8,
+  "open": 0.7408,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c26c"
+  },
+  "high": 0.7409,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7382,
+  "close": 0.7386
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:32:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.2102,
+  "high": 0.21029,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bccc"
+  },
+  "low": 0.20943,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 3171475,
+  "close": 0.20967
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:32:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0ac"
+  },
+  "high": 116014,
+  "open": 116014,
+  "close": 115893.94,
+  "volume": 58.05742,
+  "low": 115870,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:31:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 52411.2,
+  "open": 0.7408,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c26b"
+  },
+  "high": 0.741,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7403,
+  "close": 0.7408
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:31:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.26,
+  "open": 172.26,
+  "high": 172.32,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b72b"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 172.2,
+  "volume": 1128.847
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:31:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.21018,
+  "high": 0.21028,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bccb"
+  },
+  "low": 0.21003,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 1073751,
+  "close": 0.2102
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:31:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0ab"
+  },
+  "high": 116028.01,
+  "open": 116028.01,
+  "close": 116014,
+  "volume": 8.79131,
+  "low": 116004,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:30:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0aa"
+  },
+  "high": 116040.21,
+  "open": 116040.21,
+  "close": 116028,
+  "volume": 5.69627,
+  "low": 116028,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:30:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 145937.5,
+  "open": 0.7423,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c26a"
+  },
+  "high": 0.7423,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7406,
+  "close": 0.7407
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:30:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.21076,
+  "high": 0.21082,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcca"
+  },
+  "low": 0.21011,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 1211466,
+  "close": 0.21019
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:30:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.26,
+  "open": 172.46,
+  "high": 172.49,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b72a"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 172.22,
+  "volume": 4609.445
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:29:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.21117,
+  "high": 0.21121,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcc9"
+  },
+  "low": 0.21075,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 514112,
+  "close": 0.21075
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:29:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.46,
+  "open": 172.7,
+  "high": 172.74,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b729"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 172.45,
+  "volume": 1666.898
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:29:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0a9"
+  },
+  "high": 116080.01,
+  "open": 116080,
+  "close": 116040.21,
+  "volume": 24.91514,
+  "low": 116037.76,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:29:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 16383.5,
+  "open": 0.7432,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c269"
+  },
+  "high": 0.7433,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7423,
+  "close": 0.7423
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:28:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.21127,
+  "high": 0.21146,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcc8"
+  },
+  "low": 0.21115,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 265285,
+  "close": 0.21116
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:28:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 13444.7,
+  "open": 0.7434,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c268"
+  },
+  "high": 0.744,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7433,
+  "close": 0.7433
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:28:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.7,
+  "open": 172.56,
+  "high": 172.83,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b728"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 172.54,
+  "volume": 1944.413
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:28:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0a8"
+  },
+  "high": 116103.11,
+  "open": 116103.11,
+  "close": 116080.01,
+  "volume": 1.22081,
+  "low": 116080,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:27:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 22157.4,
+  "open": 0.7432,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c267"
+  },
+  "high": 0.7441,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7431,
+  "close": 0.7435
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:27:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.2112,
+  "high": 0.21143,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcc7"
+  },
+  "low": 0.2112,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 559293,
+  "close": 0.21128
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:27:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0a7"
+  },
+  "high": 116108.1,
+  "open": 116089.12,
+  "close": 116103.11,
+  "volume": 8.39916,
+  "low": 116082.23,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:27:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.57,
+  "open": 172.71,
+  "high": 172.87,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b727"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 172.57,
+  "volume": 1745.095
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:26:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.21152,
+  "high": 0.21152,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcc6"
+  },
+  "low": 0.21116,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 502442,
+  "close": 0.2112
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:26:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.71,
+  "open": 172.85,
+  "high": 172.9,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b726"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 172.66,
+  "volume": 764.507
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:26:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0a6"
+  },
+  "high": 116138.49,
+  "open": 116138.48,
+  "close": 116089.12,
+  "volume": 13.13166,
+  "low": 116089.11,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:26:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 25727,
+  "open": 0.744,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c266"
+  },
+  "high": 0.7441,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7432,
+  "close": 0.7432
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:25:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0a5"
+  },
+  "high": 116159.57,
+  "open": 116152.15,
+  "close": 116138.49,
+  "volume": 10.29103,
+  "low": 116129.22,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:25:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.84,
+  "open": 172.58,
+  "high": 172.85,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b725"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 172.58,
+  "volume": 2203.496
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:25:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 66136.6,
+  "open": 0.7431,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c265"
+  },
+  "high": 0.7439,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7429,
+  "close": 0.7439
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:25:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.21109,
+  "high": 0.21151,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcc5"
+  },
+  "low": 0.21109,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 717950,
+  "close": 0.21151
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:24:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.21143,
+  "high": 0.21143,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcc4"
+  },
+  "low": 0.21106,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 626122,
+  "close": 0.21108
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:24:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.57,
+  "open": 172.78,
+  "high": 172.78,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b724"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 172.56,
+  "volume": 937.878
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:24:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0a4"
+  },
+  "high": 116243.73,
+  "open": 116243.72,
+  "close": 116152.14,
+  "volume": 5.39912,
+  "low": 116152.14,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:24:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 26646.6,
+  "open": 0.7442,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c264"
+  },
+  "high": 0.7442,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.743,
+  "close": 0.7431
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:23:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.79,
+  "open": 172.73,
+  "high": 172.96,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b723"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 172.73,
+  "volume": 1251.755
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:23:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.21142,
+  "high": 0.21176,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcc3"
+  },
+  "low": 0.21142,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 374094,
+  "close": 0.21143
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:23:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0a3"
+  },
+  "high": 116264,
+  "open": 116229.41,
+  "close": 116243.72,
+  "volume": 9.85126,
+  "low": 116229.4,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:23:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 47315.2,
+  "open": 0.7441,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c263"
+  },
+  "high": 0.745,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7441,
+  "close": 0.7441
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:22:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.21152,
+  "high": 0.21152,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcc2"
+  },
+  "low": 0.21118,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 394645,
+  "close": 0.21141
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:22:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.74,
+  "open": 172.84,
+  "high": 172.84,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b722"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 172.65,
+  "volume": 751.101
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:22:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0a2"
+  },
+  "high": 116229.41,
+  "open": 116214.81,
+  "close": 116229.41,
+  "volume": 4.49746,
+  "low": 116190.33,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:22:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 37772.5,
+  "open": 0.7443,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c262"
+  },
+  "high": 0.7443,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7434,
+  "close": 0.744
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:21:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0a1"
+  },
+  "high": 116227.36,
+  "open": 116191.97,
+  "close": 116214.81,
+  "volume": 5.85582,
+  "low": 116191.97,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:21:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.21105,
+  "high": 0.21162,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcc1"
+  },
+  "low": 0.21105,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 784547,
+  "close": 0.21152
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:21:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.85,
+  "open": 172.63,
+  "high": 172.9,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b721"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 172.62,
+  "volume": 575.162
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:21:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 13038.4,
+  "open": 0.743,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c261"
+  },
+  "high": 0.7446,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.743,
+  "close": 0.7443
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:20:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.63,
+  "open": 172.56,
+  "high": 172.77,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b720"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 172.54,
+  "volume": 535.492
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:20:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.21094,
+  "high": 0.21125,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcc0"
+  },
+  "low": 0.21083,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 285463,
+  "close": 0.21105
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:20:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 90074.3,
+  "open": 0.7424,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c260"
+  },
+  "high": 0.7435,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7424,
+  "close": 0.743
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:20:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a0a0"
+  },
+  "high": 116230.49,
+  "open": 116152,
+  "close": 116191.97,
+  "volume": 6.94767,
+  "low": 116146.95,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:19:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a09f"
+  },
+  "high": 116201.53,
+  "open": 116201.53,
+  "close": 116152,
+  "volume": 11.46613,
+  "low": 116152,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:19:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.21108,
+  "high": 0.21112,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcbf"
+  },
+  "low": 0.21073,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 708005,
+  "close": 0.21094
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:19:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.56,
+  "open": 172.68,
+  "high": 172.69,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b71f"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 172.47,
+  "volume": 1365.213
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:19:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 59413.7,
+  "open": 0.7429,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c25f"
+  },
+  "high": 0.743,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.742,
+  "close": 0.7424
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:18:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 67216,
+  "open": 0.7442,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c25e"
+  },
+  "high": 0.7443,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7428,
+  "close": 0.7428
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:18:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a09e"
+  },
+  "high": 116262.77,
+  "open": 116262.77,
+  "close": 116201.53,
+  "volume": 7.93411,
+  "low": 116201.52,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:18:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.68,
+  "open": 173.05,
+  "high": 173.05,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b71e"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 172.68,
+  "volume": 1208.178
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:18:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.21146,
+  "high": 0.21147,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcbe"
+  },
+  "low": 0.21107,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 450549,
+  "close": 0.21108
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:17:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a09d"
+  },
+  "high": 116280,
+  "open": 116232.51,
+  "close": 116262.77,
+  "volume": 4.39005,
+  "low": 116232.5,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:17:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.21122,
+  "high": 0.21162,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcbd"
+  },
+  "low": 0.21122,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 446893,
+  "close": 0.21145
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:17:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 173.06,
+  "open": 172.92,
+  "high": 173.18,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b71d"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 172.92,
+  "volume": 2709.858
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:17:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 18362.7,
+  "open": 0.7436,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c25d"
+  },
+  "high": 0.7448,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7436,
+  "close": 0.7443
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:16:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.21165,
+  "high": 0.21171,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcbc"
+  },
+  "low": 0.2112,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 634240,
+  "close": 0.21121
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:16:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 172.93,
+  "open": 173.2,
+  "high": 173.27,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b71c"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 172.92,
+  "volume": 1225.33
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:16:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 14440.2,
+  "open": 0.7449,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c25c"
+  },
+  "high": 0.7453,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7436,
+  "close": 0.7436
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:16:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a09c"
+  },
+  "high": 116286.28,
+  "open": 116263.98,
+  "close": 116232.51,
+  "volume": 4.76759,
+  "low": 116232.5,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:15:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 143350.6,
+  "open": 0.7462,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c25b"
+  },
+  "high": 0.7463,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7444,
+  "close": 0.7449
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:15:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 173.19,
+  "open": 173.45,
+  "high": 173.45,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b71b"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 173.15,
+  "volume": 1581.519
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:15:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.21181,
+  "high": 0.21181,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcbb"
+  },
+  "low": 0.21141,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 1620162,
+  "close": 0.21164
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:15:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a09b"
+  },
+  "high": 116362.99,
+  "open": 116362.98,
+  "close": 116263.98,
+  "volume": 13.92852,
+  "low": 116253.07,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:14:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.21195,
+  "high": 0.21195,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcba"
+  },
+  "low": 0.21168,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 449303,
+  "close": 0.21181
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:14:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 89696,
+  "open": 0.7468,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c25a"
+  },
+  "high": 0.7468,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7457,
+  "close": 0.7463
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:14:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 173.45,
+  "open": 173.52,
+  "high": 173.53,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b71a"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 173.35,
+  "volume": 1517.096
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:14:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a09a"
+  },
+  "high": 116362.99,
+  "open": 116343.62,
+  "close": 116362.99,
+  "volume": 13.88639,
+  "low": 116305.73,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:13:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.2118,
+  "high": 0.21214,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcb9"
+  },
+  "low": 0.21174,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 700270,
+  "close": 0.21196
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:13:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 59395.7,
+  "open": 0.746,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c259"
+  },
+  "high": 0.7474,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7457,
+  "close": 0.7469
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:13:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 173.51,
+  "open": 173.54,
+  "high": 173.75,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b719"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 173.51,
+  "volume": 1486.908
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:13:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a099"
+  },
+  "high": 116343.63,
+  "open": 116280.63,
+  "close": 116343.62,
+  "volume": 13.81661,
+  "low": 116263.66,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:12:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.21163,
+  "high": 0.21191,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcb8"
+  },
+  "low": 0.21161,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 202999,
+  "close": 0.21181
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:12:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 173.55,
+  "open": 173.44,
+  "high": 173.6,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b718"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 173.42,
+  "volume": 788.277
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:12:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 20819.8,
+  "open": 0.7452,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c258"
+  },
+  "high": 0.7463,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7451,
+  "close": 0.746
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:12:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a098"
+  },
+  "high": 116291.24,
+  "open": 116224.01,
+  "close": 116280.64,
+  "volume": 9.78417,
+  "low": 116209.63,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:11:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.21137,
+  "high": 0.21172,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcb7"
+  },
+  "low": 0.21134,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 659318,
+  "close": 0.21164
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:11:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 118905.2,
+  "open": 0.7448,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c257"
+  },
+  "high": 0.7458,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7448,
+  "close": 0.7453
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:11:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a097"
+  },
+  "high": 116245.21,
+  "open": 116211.21,
+  "close": 116224.01,
+  "volume": 18.63273,
+  "low": 116211.2,
+  "date_load_iso_utc": "20250801051014"
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:11:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 173.45,
+  "open": 173.4,
+  "high": 173.53,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b717"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 173.39,
+  "volume": 452.883
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:10:00.000Z"
+  },
+  "symbol": "DOGE",
+  "open": 0.21088,
+  "high": 0.21138,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885bcb6"
+  },
+  "low": 0.21088,
+  "date_load_iso_utc": "20250801051015",
+  "volume": 742364,
+  "close": 0.21138
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:10:00.000Z"
+  },
+  "symbol": "ADA",
+  "volume": 8775,
+  "open": 0.7433,
+  "_id": {
+    "$oid": "688c4c375b57ec4e6885c256"
+  },
+  "high": 0.7447,
+  "date_load_iso_utc": "20250801051015",
+  "low": 0.7433,
+  "close": 0.7447
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:10:00.000Z"
+  },
+  "symbol": "SOL",
+  "close": 173.4,
+  "open": 173.16,
+  "high": 173.4,
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885b716"
+  },
+  "date_load_iso_utc": "20250801051014",
+  "low": 173.16,
+  "volume": 450.571
+},
+{
+  "timestamp": {
+    "$date": "2025-07-31T23:10:00.000Z"
+  },
+  "symbol": "BTC",
+  "_id": {
+    "$oid": "688c4c365b57ec4e6885a096"
+  },
+  "high": 116211.21,
+  "open": 116148.01,
+  "close": 116211.21,
+  "volume": 4.91968,
+  "low": 116148.01,
+  "date_load_iso_utc": "20250801051014"
+}]
