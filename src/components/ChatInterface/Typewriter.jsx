@@ -6,7 +6,7 @@ const Typewriter = ({ text, speed = 5, messageId, completedMessages, markComplet
   const intervalRef = useRef(null);
 
   useEffect(() => {
-    // Check if this message has already been completed
+    // Check if this message has already been completed!
     if (completedMessages[messageId]) {
       setDisplayedText(text);
       setCurrentIndex(text.length);
