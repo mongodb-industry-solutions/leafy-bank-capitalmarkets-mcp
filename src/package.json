@@ -42,7 +42,7 @@
     "@babel/preset-env": "^7.28.0",
     "@babel/preset-react": "^7.27.1",
     "eslint": "8.54.0",
-    "eslint-config-next": "14.2.3",
+    "eslint-config-next": "16.1.6",
     "nodemon": "^3.0.2"
   }
 }
