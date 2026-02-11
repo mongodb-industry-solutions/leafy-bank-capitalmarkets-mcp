@@ -13,8 +13,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@aws-sdk/client-bedrock": "^3.857.0",
-    "@aws-sdk/client-bedrock-runtime": "^3.857.0",
+    "@aws-sdk/client-bedrock": "^3.987.0",
+    "@aws-sdk/client-bedrock-runtime": "^3.987.0",
     "@langchain/aws": "^0.1.0",
     "@langchain/core": "^0.3.0",
     "@langchain/langgraph": "^0.1.0",
