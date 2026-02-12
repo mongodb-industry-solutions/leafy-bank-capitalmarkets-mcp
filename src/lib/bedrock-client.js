@@ -44,7 +44,7 @@ export class BedrockClientManager {
    * @returns {string} The default model ID
    */
   _getDefaultModelId() {
-    return process.env.NEXT_PUBLIC_CHAT_COMPLETIONS_MODEL_ID || process.env.CHAT_COMPLETIONS_MODEL_ID || 'anthropic.claude-3-haiku-20240307-v1:0';
+    return process.env.NEXT_PUBLIC_CHAT_COMPLETIONS_MODEL_ID || process.env.CHAT_COMPLETIONS_MODEL_ID || 'arn:aws:bedrock:us-east-1:275662791714:application-inference-profile/ivl24tki0g9w';
   }
 
   /**
