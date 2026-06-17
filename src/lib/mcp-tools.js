@@ -3,6 +3,9 @@ import { z } from "zod";
 import { getOrCreateGlobalMCPServer } from "./global-mcp-store";
 import { MCPServerManager } from "./mcp-server";
 
+// Target database. fin_migration = staging; set MCP_DATABASE_NAME=leafy_bank_bian at promotion.
+const DATABASE_NAME = process.env.MCP_DATABASE_NAME || 'leafy_bank_bian';
+
 // Define the allowed assets for validation
 const ALLOWED_CRYPTO_ASSETS = ['BTC', 'ETH', 'XRP', 'SOL', 'DOGE', 'ADA'];
 const ALLOWED_STOCK_ASSETS = ['HYG', 'LQD', 'TLT', 'GLD', 'USO', 'EEM', 'QQQ', 'SPY', 'XLE', 'VNQ'];
@@ -49,13 +52,13 @@ export const mcpFindTool = new DynamicStructuredTool({
 
       const upperSymbol = symbol.toUpperCase();
       const assetType = getAssetType(upperSymbol);
-      
+
       if (!assetType) {
         throw new Error(`Asset '${symbol}' is not supported. Supported crypto: ${ALLOWED_CRYPTO_ASSETS.join(', ')}. Supported stocks: ${ALLOWED_STOCK_ASSETS.join(', ')}`);
       }
 
       const collection = assetType === 'crypto' ? 'binanceCryptoData' : 'yfinanceMarketData';
-      
+
       // Build projection
       let projection = {};
       if (fields) {
@@ -66,7 +69,7 @@ export const mcpFindTool = new DynamicStructuredTool({
       }
 
       const params = {
-        database: 'agentic_capital_markets',
+        database: DATABASE_NAME,
         collection: collection,
         filter: { symbol: upperSymbol },
         projection: Object.keys(projection).length > 0 ? projection : {},
@@ -102,15 +105,15 @@ export const mcpAggregateTool = new DynamicStructuredTool({
 
       const upperSymbol = symbol.toUpperCase();
       const assetType = getAssetType(upperSymbol);
-      
+
       if (!assetType) {
         throw new Error(`Asset '${symbol}' is not supported. Supported crypto: ${ALLOWED_CRYPTO_ASSETS.join(', ')}. Supported stocks: ${ALLOWED_STOCK_ASSETS.join(', ')}`);
       }
 
       const collection = assetType === 'crypto' ? 'binanceCryptoData' : 'yfinanceMarketData';
-      
+
       let pipeline = [];
-      
+
       // Add symbol filter
       pipeline.push({ $match: { symbol: upperSymbol } });
 
@@ -142,7 +145,7 @@ export const mcpAggregateTool = new DynamicStructuredTool({
             }
           );
           break;
-          
+
         case 'min':
           // Sort by field ascending and take the first document
           pipeline.push(
@@ -158,7 +161,7 @@ export const mcpAggregateTool = new DynamicStructuredTool({
             }
           );
           break;
-          
+
         case 'stats':
           pipeline.push({
             $group: {
@@ -173,7 +176,7 @@ export const mcpAggregateTool = new DynamicStructuredTool({
             }
           });
           break;
-          
+
         case 'trend':
           pipeline.push({
             $group: {
@@ -188,7 +191,7 @@ export const mcpAggregateTool = new DynamicStructuredTool({
           });
           pipeline.push({ $sort: { '_id.year': 1, '_id.month': 1, '_id.day': 1 } });
           break;
-          
+
         case 'volatility':
           pipeline.push({
             $group: {
@@ -204,7 +207,7 @@ export const mcpAggregateTool = new DynamicStructuredTool({
             }
           });
           break;
-          
+
         case 'volume':
           pipeline.push({
             $group: {
@@ -216,7 +219,7 @@ export const mcpAggregateTool = new DynamicStructuredTool({
             }
           });
           break;
-          
+
         case 'custom':
           if (!customPipeline) {
             throw new Error("Custom pipeline is required for 'custom' operation");
@@ -232,13 +235,13 @@ export const mcpAggregateTool = new DynamicStructuredTool({
             throw new Error(`Invalid custom pipeline JSON: ${parseError.message}`);
           }
           break;
-          
+
         default:
           throw new Error(`Unknown operation: ${operation}. Supported operations: max, min, stats, trend, volatility, volume, custom`);
       }
 
       const params = {
-        database: 'agentic_capital_markets',
+        database: DATABASE_NAME,
         collection: collection,
         pipeline: pipeline
       };
@@ -256,7 +259,7 @@ export const mcpListCollectionsTool = new DynamicStructuredTool({
   name: "mcp_list_collections",
   description: "List available collections in the MongoDB database. Use this to understand what data is available.",
   schema: z.object({
-    database: z.string().optional().default("agentic_capital_markets").describe("Database name to list collections from")
+    database: z.string().optional().default(DATABASE_NAME).describe("Database name to list collections from")
   }),
   func: async ({ database }) => {
     try {
@@ -275,4 +278,4 @@ export const mcpListCollectionsTool = new DynamicStructuredTool({
 });
 
 // Export all tools as an array for the React agent
-export const mcpTools = [mcpFindTool, mcpAggregateTool, mcpListCollectionsTool]; 
+export const mcpTools = [mcpFindTool, mcpAggregateTool, mcpListCollectionsTool];
