@@ -1,13 +1,26 @@
+# TEMPORARY — ist-prod green deployment (blue/green cutover).
+# Clone of prod.yaml; the ONLY difference is every envSecrets value points at the
+# green ksec group `capitalmarkets-mcp-bian` instead of `capitalmarkets-mcp`.
+# Deployed by the `production-bian` Drone pipeline on the `prod-green` branch.
+# At Phase 3 this file is renamed to prod.yaml and the temp pipeline is deleted.
+#
+# NOTE: despite the NEXT_PUBLIC_ prefix these are server-side runtime vars only
+# (read in src/lib/mcp-server.js and src/lib/bedrock-client.js, never in a client
+# component, and not baked as ARG/ENV in the Dockerfile), so repointing the
+# cluster is a values-file change with no rebuild required.
+# The Atlas API keys copy forward unchanged: ist-prod is a different cluster in
+# the SAME Atlas project as ist-shared, so the project-scoped keys still authorize.
+
 env:
   NODE_ENV: prod
-  
+
 envSecrets:
-  NEXT_PUBLIC_MCP_CONNECTION_STRING: capitalmarkets-mcp
-  NEXT_PUBLIC_MCP_API_CLIENT_ID: capitalmarkets-mcp
-  NEXT_PUBLIC_MCP_API_CLIENT_SECRET: capitalmarkets-mcp
-  NEXT_PUBLIC_AWS_REGION: capitalmarkets-mcp
-  NEXT_PUBLIC_CHAT_COMPLETIONS_MODEL_ID: capitalmarkets-mcp
-  NODE_ENV: capitalmarkets-mcp
+  NEXT_PUBLIC_MCP_CONNECTION_STRING: capitalmarkets-mcp-bian
+  NEXT_PUBLIC_MCP_API_CLIENT_ID: capitalmarkets-mcp-bian
+  NEXT_PUBLIC_MCP_API_CLIENT_SECRET: capitalmarkets-mcp-bian
+  NEXT_PUBLIC_AWS_REGION: capitalmarkets-mcp-bian
+  NEXT_PUBLIC_CHAT_COMPLETIONS_MODEL_ID: capitalmarkets-mcp-bian
+  NODE_ENV: capitalmarkets-mcp-bian
 
 serviceAccount:
   enabled: true
