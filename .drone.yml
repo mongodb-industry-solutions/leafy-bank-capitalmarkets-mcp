@@ -83,7 +83,7 @@ steps:
     settings:
       create_repository: true
       registry: 795250896452.dkr.ecr.us-east-1.amazonaws.com
-      repo: industrysolutions/capitalmarkets-mcp
+      repo: industrysolutions/capitalmarkets-mcp-bian
       tags:
         - git-${DRONE_COMMIT_SHA:0:7}
         - latest
@@ -102,12 +102,12 @@ steps:
       chart_version: 4.25.0
       add_repos: [mongodb=https://10gen.github.io/helm-charts]
       namespace: industrysolutions
-      release: capitalmarkets-mcp
+      release: capitalmarkets-mcp-bian-prod
       values:
         - "image.tag=git-${DRONE_COMMIT_SHA:0:7}"
-        - "image.repository=795250896452.dkr.ecr.us-east-1.amazonaws.com/industrysolutions/capitalmarkets-mcp"
+        - "image.repository=795250896452.dkr.ecr.us-east-1.amazonaws.com/industrysolutions/capitalmarkets-mcp-bian"
         - "ingress.enabled=true"
-        - "ingress.hosts[0]=capitalmarkets-mcp.industrysolutions.prod.corp.mongodb.com"
+        - "ingress.hosts[0]=capitalmarkets-mcp-bian.industrysolutions.prod.corp.mongodb.com"
         - "mesh.enabled=true"
         - "resources.limits.cpu=500m"
         - "resources.limits.memory=1024Mi"
