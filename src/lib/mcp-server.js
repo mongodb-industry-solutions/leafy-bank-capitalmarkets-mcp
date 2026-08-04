@@ -249,14 +249,19 @@ export class MCPServerManager {
         return reject(new Error('MCP Server not available'));
       }
 
-      // Create MCP request
+      // Create MCP request.
+      // Since v2.0.0 every database tool requires an explicit connectionId. We
+      // spawn the server with --connectionString, so the connection is the
+      // pre-configured one and its id is the hardcoded 'preconfigured'.
+      // Spread params last so a caller can override it if a real connect() flow
+      // is ever added.
       const request = {
         jsonrpc: '2.0',
         id: this.mcpMessageId++,
         method: 'tools/call',
         params: {
           name: toolName,
-          arguments: params
+          arguments: { connectionId: 'preconfigured', ...params }
         }
       };
 
@@ -319,6 +324,12 @@ export class MCPServerManager {
                 if (response.error) {
                   this.updateToolCallStatus(call.id, 'error', response.error);
                   reject(new Error(response.error.message || 'MCP Server error'));
+                } else if (response.result?.isError) {
+                  // A tool-level failure still arrives as a successful JSON-RPC
+                  // response. Book it as an error so it shows up in the stats,
+                  // but resolve so the agent sees the message and can adapt.
+                  this.updateToolCallStatus(call.id, 'error', response.result);
+                  resolve(response.result);
                 } else {
                   this.updateToolCallStatus(call.id, 'completed', response.result);
                   resolve(response.result);
